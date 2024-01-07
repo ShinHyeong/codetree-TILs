@@ -16,5 +16,7 @@ elif o=="-":
     print(f"{a} {o} {b} = {빼기(a,b)}")
 elif o=="/":
     print(f"{a} {o} {b} = {나누기(a,b)}")
-else:
+elif o=="*":
     print(f"{a} {o} {b} = {곱하기(a,b)}")
+else:
+    print(False)
