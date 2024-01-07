@@ -3,7 +3,7 @@ def 더하기(a,c):
 def 나누기(a,c):
     return a//c
 def 빼기(a,c):
-    return max(a,c)-min(a,c)
+    return a-c
 def 곱하기(a,c):
     return a*c
 
