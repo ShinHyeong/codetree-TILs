@@ -15,6 +15,7 @@ def is_squence(arr_a, arr_b, n1, n2):
         if(arr_a[pos] != arr_b[j]):
             return "No" #한번이라도 일치하지 않으면 false
         pos+=1
+        
 
     return "Yes"
 
