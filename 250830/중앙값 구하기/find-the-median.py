@@ -1,4 +1,4 @@
-arr = input().split() #입력 -> [a, b, c]
+arr = list(map(int,input().split())) #입력 -> [a, b, c]
 a = arr[0]
 b = arr[1]
 c = arr[2]
