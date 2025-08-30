@@ -1,4 +1,5 @@
 sex = int(input())
+age = int(input())
 
 #if1 : 성인인지
 #if2 : 성별
