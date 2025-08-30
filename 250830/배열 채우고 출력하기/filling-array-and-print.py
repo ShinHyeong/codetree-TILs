@@ -1,6 +1,5 @@
-arr = input().split()
-arr.reverse()
-reverse=""
-for x in arr:
-    reverse+=x
-print(reverse)
+arr = input().split() #입력받기
+
+#뒤에서부터 출력하기
+for i in range(len(arr), -1, -1):
+    print(arr[i], end="") #줄바꿈없이 출력
