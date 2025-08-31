@@ -13,6 +13,6 @@ for x in range(start,end+1):
     for divisor in range(1,x+1):
         if x%divisor==0:
             divisor_cnt+=1
-    if divisor_cnt==0:
+    if divisor_cnt==3:
         cnt+=1
 print(cnt)
