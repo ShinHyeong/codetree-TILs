@@ -9,7 +9,7 @@ def square(n):
             arr[i][j] = start
             print(arr[i][j],end=' ')
             start+=1
-            if start%10==0:
+            if start%10==0: #일의 자리가 0이면 start를 1로 바꿔줌
                 start = 1
         print()
 # 함수 실행
