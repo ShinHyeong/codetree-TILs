@@ -4,7 +4,7 @@ b = list(map(int, input().split()))
 
 # Please write your code here.
 #b의 첫번째 원소를 a에서 어느위치에 있는지 확인
-def firstElementIndexInListA(a, b):
+def findFirstElementIndexInListA(a, b):
     for i in range(n1):
         if a[i]==b[0]:
             return i
@@ -13,8 +13,8 @@ def firstElementIndexInListA(a, b):
 #b의 첫번째 원소를 a에서 어느위치에 있는지 확인
 #b의 처음~끝까지 돌면서 a도 그 인덱스부터 같이 비교하면서 돌았는데 한번도 어긋남없이 같다면 연속부분수열임
 def is_subSeq(a,b):
-    if a.index(b[0])>=0: 
-        firstElementIndexInListA = a.index(b[0])
+    if findFirstElementIndexInListA(a, b)>=0: 
+        firstElementIndexInListA = findFirstElementIndexInListA(a, b)
     else:
         return False 
 
