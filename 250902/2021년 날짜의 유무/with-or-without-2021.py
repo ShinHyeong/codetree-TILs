@@ -14,12 +14,14 @@ def is_valid_date(M,D):
             return 1<=D<=31
         else: #even M. : 2,4,6
             return 1<=D<=30
-    else: #8<=M<=12
+    elif M<=12: #8<=M<=12
         if M%2!=0: #odd M. : 9,11
             return 1<=D<=30
         else: #even M : 8,10,12
             return 1<=D<=31
-
+    else:
+        return False
+        
 if is_valid_date(M,D):
     print("Yes")
 else:
