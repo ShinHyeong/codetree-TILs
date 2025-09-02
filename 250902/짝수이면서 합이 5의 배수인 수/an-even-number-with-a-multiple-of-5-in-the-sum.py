@@ -7,7 +7,7 @@ def multiple_5(n):
     return sum_val%5==0
 
 #if 문에 함수 넣고 print
-if multiple_5:
+if multiple_5(n):
     print("Yes")
 else:
     print("No")
