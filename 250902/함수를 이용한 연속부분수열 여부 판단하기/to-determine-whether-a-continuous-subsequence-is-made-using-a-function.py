@@ -10,7 +10,6 @@ def is_subSeq(a,b):
     firstElementIndexInListA = a.index(b[0])
 
     for i in range(n2):
-        #print(b[i], a[firstElementIndexInListA+i])
         if b[i]!=a[firstElementIndexInListA+i]:
             return False
     return True
