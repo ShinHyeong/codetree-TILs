@@ -7,7 +7,7 @@ c = int(c)
 def add(a,b):
     return a+b
 def sub(a,b):
-    return a-b if a>b else b-a
+    return a-b
 def multi(a,b):
     return a*b
 def divide(a,b):
