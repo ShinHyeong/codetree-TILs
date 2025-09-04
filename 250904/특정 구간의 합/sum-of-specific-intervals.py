@@ -3,6 +3,7 @@ arr = list(map(int, input().split()))
 queries = [tuple(map(int, input().split())) for _ in range(m)]
 
 # Please write your code here.
+# 매개변수 : 부분수열의 인덱스
 # 수열A를 전역변수로 표현하기
 # 수열A의 a1 ~ a2 합 구하는 함수
 def sum_seq(query):
