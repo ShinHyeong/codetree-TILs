@@ -10,4 +10,4 @@ def print_text(n):
     print_text(n-1)
     print("HelloWorld")
 
-print(n)
+print_text(n)
