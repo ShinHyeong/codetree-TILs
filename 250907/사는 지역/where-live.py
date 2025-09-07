@@ -26,7 +26,7 @@ for i in range(n):
 max_idx = 0
 max_name = "a"
 for i in range(n):
-    if users[i].name > max_name:
+    if users[i].name[0] > max_name:
         max_name = users[i].name
         max_idx = i
 
