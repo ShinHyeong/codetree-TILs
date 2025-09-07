@@ -20,12 +20,10 @@ for i in range(5):
     users.append(User(codenames[i], scores[i]))
 
 # 리스트 처음~끝까지 돌면서 가장 낮은 점수 가진 요원 찾기
-min_score = 100
-min_idx = 0
+target_idx = 0
 for i in range(5):
-    if users[i].score < min_score:
-        min_score = users[i].score
+    if users[i].score < users[target_idx].score:
         min_idx = i
 
 # 정보 출력
-print(users[min_idx].cn, users[min_idx].score)
+print(users[target_idx].cn, users[target_idx].score)
