@@ -23,20 +23,9 @@ for i in range(n):
     users.append(User(name[i], street_address[i], region[i]))
 
 #리스트 처음~끝까지 사전순으로 이름이 가장 느린 사람의 자료 찾기 
-def is_s1_nameDsc(s1, s2):
-    arr1 = list(s1)
-    arr2 = list(s2)
-    
-    for i in range(min(len(arr1),len(arr2))):
-        if arr1[i]>arr2[i]:
-            return True
-    return False
-
 target_idx = 0
-max_name = "a"
 for i in range(n):
-    if is_s1_nameDsc(users[i].name, max_name):
-        max_name = users[i].name[0]
+    if users[i].name > users[target_idx].name:
         target_idx = i
 
 #그 사람 인덱스를 기반으로 정보 출력
