@@ -27,7 +27,7 @@ max_idx = 0
 max_name = "a"
 for i in range(n):
     if users[i].name[0] > max_name:
-        max_name = users[i].name
+        max_name = users[i].name[0]
         max_idx = i
 
 #그 사람 인덱스를 기반으로 정보 출력
