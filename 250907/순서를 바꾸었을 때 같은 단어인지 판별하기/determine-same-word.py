@@ -2,6 +2,10 @@ word1 = input()
 word2 = input()
 
 # Please write your code here.
+#단어의 갯수가 같은지 체크하는 함수
+def len_same(w1, w2):
+    return len(w1)==len(w2)
+
 #단어의 요소가 같은지 체크하는 함수
 #오름차순으로 정렬 후 리스트 처음~끝까지 돌면서 같은지 체크
 def is_same(w1, w2):
@@ -17,7 +21,7 @@ def is_same(w1, w2):
     return True
 
 #Yes/No 출력
-if is_same(word1, word2):
+if len_same(word1,word2) and is_same(word1, word2):
     print("Yes")
 else:
     print("No")
