@@ -21,11 +21,11 @@ class Forecast:
 forecast = [Forecast(date[i], day[i], weather[i]) for i in range(n)]
 
 # 리스트 처음~끝까지 하나씩 꺼내면서 비가 오는데 가장 빠른 날짜 찾기
-ans = Forecast("9999-99-99","","")
+rst = Forecast("9999-99-99","","")
 for i in range(n):
     if forecast[i].weather == "Rain":
-        if forecast[i].date < ans.date:
-            target_idx = i
+        if forecast[i].date < rst.date:
+            rst = forecast[i]
 
 #날짜, 요일, 날씨 포맷 출력
-print(forecast[target_idx].date, forecast[target_idx].day, forecast[target_idx].weather)
+print(rst.date, rst.day, rst.weather)
