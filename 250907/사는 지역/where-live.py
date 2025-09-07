@@ -23,14 +23,14 @@ for i in range(n):
     users.append(User(name[i], street_address[i], region[i]))
 
 #리스트 처음~끝까지 사전순으로 이름이 가장 느린 사람의 자료 찾기 
-max_idx = 0
+target_idx = 0
 max_name = "a"
 for i in range(n):
-    if users[i].name[0] > max_name:
+    if users[i].name > max_name:
         max_name = users[i].name[0]
-        max_idx = i
+        target_idx = i
 
 #그 사람 인덱스를 기반으로 정보 출력
-print("name",users[i].name)
-print("addr",users[i].addr)
-print("city",users[i].city)
+print("name",users[target_idx].name)
+print("addr",users[target_idx].addr)
+print("city",users[target_idx].city)
