@@ -6,7 +6,7 @@ arr = list(map(int, input().split()))
 def get_mid(i):
     sample = arr[:i+1] #지금까지 입력 받은 값으로 부분 수열 만듦
     # ex. 5개의 원소 0 1 2 3 4-> index 2
-    return sorted(sample)[len(sample)//2]
+    return sorted(sample)[len(sample)//2] #오름차순으로 정렬했을 때 가장 중앙에 위치한값 반환
 
 # 순서대로 정수를 읽다가
 # 홀수번쨰 원소이면
