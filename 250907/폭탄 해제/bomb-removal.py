@@ -13,6 +13,6 @@ class Bomb:
 b1 = Bomb(unlock_code,wire_color,seconds)
 
 # 폭탄정보 출력
-print("code : {b1.uc}")
-print("color : {b1.wc}")
-print("second : {b1.sc}")
+print(f"code : {b1.uc}")
+print(f"color : {b1.wc}")
+print(f"second : {b1.sc}")
