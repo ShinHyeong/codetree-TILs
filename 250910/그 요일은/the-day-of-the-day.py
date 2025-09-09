@@ -10,11 +10,13 @@ day_of_week = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 #m1/d1~m2/d2까지 흐른 일수 구하고 
 elapsed_day = (sum(nums_of_day[:m2])+d2) - (sum(nums_of_day[:m1])+d1)
 
-#현재 요일 = 월요일
+# 현재 요일의 인덱스 : 월요일이니까 1
 curr_idx = 1
+
+# 주어진 문자열 A로 target요일의 인덱스 구하기
 target_idx = day_of_week.index(A)
 
-# target요일(=a) 등장횟수 초기화
+# target요일 등장횟수 초기화
 target_cnt = 0
 
 # m1/d1~m2/d2 까지 흐른 일수동안
