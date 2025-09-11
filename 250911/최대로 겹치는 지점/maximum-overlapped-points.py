@@ -18,7 +18,7 @@ for s in segments:
 
 # 업데이트한 선분 정보 리스트 하나씩 돌면서
 # 겹치는 지점 구하기 -> x1부터 x2까지 +1 처리
-checked = [0] * 100
+checked = [0] * 101
 for s in updated_segments:
     for i in range(s[0], s[1]+1):
         checked[i]+=1
