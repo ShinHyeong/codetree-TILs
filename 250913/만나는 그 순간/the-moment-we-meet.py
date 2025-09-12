@@ -56,7 +56,7 @@ for k in range(m): #n개의 명령
 #만난다면 최초로 만나게 되는 시간 출력 (=인덱스 출력)
 #아니라면 -1 출력
 def meet(a, b):
-    for t in range(min(len(a), len(b))):
+    for t in range(1, min(len(a), len(b))):
         if a[t]==b[t]:
             return t
     return -1
