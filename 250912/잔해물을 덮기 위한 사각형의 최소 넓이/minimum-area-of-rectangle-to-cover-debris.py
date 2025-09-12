@@ -7,7 +7,7 @@ x1[1], y1[1], x2[1], y2[1] = map(int, input().split())
 offset = 0
 for k in range(2):
     if x1[k]<0 or x2[k]<0 or y1[k]<0 or y2[k]<0:
-        if min(x1[k],x2[k],y1[k],y2[k]) < offset:
+        if min(x1[k],x2[k],y1[k],y2[k]) < -offset:
             offset = (-1) * min(x1[k],x2[k],y1[k],y2[k])
 
 #offset만큼 더해서 모든 좌표값을 양수로 만들고 시작
@@ -16,7 +16,8 @@ for k in range(2):
     x2[k] += offset
     y1[k] += offset
     y2[k] += offset
- 
+
+
 #모든 원소가 0인 이차원 배열 생성
 checked = [ [0 for _ in range(1+1000*2)] for _ in range(1+1000*2) ]
 
