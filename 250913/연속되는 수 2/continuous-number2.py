@@ -10,6 +10,7 @@ consecutive_counts = []
 cnt=1 #i==0 인 경우부터 시작이니까
 
 for i in range(1,n):
+    print("i=",i)
     if arr[i]!=arr[i-1]:#다른숫자가 나왔다
         consecutive_counts.append(cnt) #직전숫자 연속해서 나온 횟수를 리스트에 추가해줌
         cnt=0 #현재숫자 횟수 초기화
