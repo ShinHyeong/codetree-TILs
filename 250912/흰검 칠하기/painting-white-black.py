@@ -42,9 +42,8 @@ for i in range(n):
         #현재위치타일 포함해서 총 x칸의 타일을 한칸씩 검사하면서 색칠
         for _ in range(x[i]):
             # 1) 현재색깔이 회색인지 체크 후 만약 그렇다면 색칠 안 하고 (회색은 더이상 바뀌지 않음)
-            if is_grey(tiles[curr_idx]):
-                continue
-            else: #현재색깔이 회색이 아니라면 현재위치타일 포함해서 총 x칸의 타일을 흰색으로 연속해서 색칠                
+            if !is_grey(tiles[curr_idx]):
+                #현재색깔이 회색이 아니라면 현재위치타일 포함해서 총 x칸의 타일을 흰색으로 연속해서 색칠                
                 tiles[curr_idx].curr = "w"
                 tiles[curr_idx].cnt_w += 1
                 # 만약 흰색으로 색칠했는데 회색으로 칠해야할 조건에 해당한다면 현재색깔=회색 처리 / 아니라면 현재색깔=흰색 처리
@@ -60,9 +59,8 @@ for i in range(n):
         #현재위치타일 포함해서 총 x칸의 타일을 한칸씩 검사하면서 색칠
         for _ in range(x[i]):
             # 1) 현재색깔이 회색인지 체크 후 만약 그렇다면 색칠 안 하고 (회색은 더이상 바뀌지 않음)
-            if is_grey(tiles[curr_idx]):
-                continue
-            else: #현재색깔이 회색이 아니라면 현재위치타일 포함해서 총 x칸의 타일을 검은색으로 연속해서 색칠                
+            if !is_grey(tiles[curr_idx]):
+                #현재색깔이 회색이 아니라면 현재위치타일 포함해서 총 x칸의 타일을 검은색으로 연속해서 색칠                
                 tiles[curr_idx].curr = "b"
                 tiles[curr_idx].cnt_b += 1
                 # 만약 흰색으로 색칠했는데 회색으로 칠해야할 조건에 해당한다면 현재색깔=회색 처리 / 아니라면 현재색깔=검은색 처리
