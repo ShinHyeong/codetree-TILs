@@ -2,21 +2,17 @@ n = int(input())
 arr = [int(input()) for _ in range(n)]
 
 # Please write your code here.
-# 증가하는 연속 부분 수열 길이를 저장하는 리스트
-# 증가하는 연속부분수열 : 연속부분수열 중 원소의 숫자가 계속 커지는 수열을 의미함
-inc_seq_lengths = []
+# 증가하는 연속부분수열 중 최대길이
+max_len = 0
+# 현재 카운팅하는 증가하는 연속부분수열 길이
+curr_len = 0
 
-#현재 증가하는 연속부분 수열의 길이
-cnt = 1
-# 증가하는지 어떻게 판단? 현재원소 > 직전원소
-for i in range(1,n):
-    if arr[i] > arr[i-1] : #증가하는 연속부분 수열이다
-        cnt+=1
-    else: #아니다
-        inc_seq_lengths.append(cnt)
-        cnt=1
-#마지막 연속부분 수열 길이 추가
-inc_seq_lengths.append(cnt)
+for i in range(n):
+    if i>=1 and arr[i] > arr[i-1]:
+        curr_len += 1
+    else: #i==0 또는 증가하지 않는 경우는 새로운 카운트이므로 1로 처리
+        curr_len = 1
+    
+    max_len = max(curr_len, max_len)
 
-# 증가하는 연속 부분 수열 중 최대길이 출력
-print(max(inc_seq_lengths))
+print(max_len)
