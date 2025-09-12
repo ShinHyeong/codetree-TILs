@@ -11,8 +11,7 @@ cnt=1 #i==0 인 경우부터 시작이니까
 for i in range(1, n):
     if arr[i]!=arr[i-1]: #직전 원소랑 다른숫자가 나왔다
         consecutive_counts.append(cnt) #직전숫자 횟수를 리스트에 추가해줌
-        cnt=0 #현재숫자 횟수 초기화
-        cnt+=1 #현재숫자 횟수 카운트 시작
+        cnt=1 #현재숫자 횟수 초기화
     else: #연속한다
         cnt+=1 #현재숫자 횟수 카운트
 consecutive_counts.append(cnt) #마지막 원소 횟수 리스트에 추가해줌
