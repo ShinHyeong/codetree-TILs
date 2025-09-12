@@ -53,10 +53,10 @@ for k in range(m): #n개의 명령
         b.append(curr_pos) # 흐른시간과 현재위치 저장
 
 #더 짧은 시간동안 이동했던 리스트를 기준으로 만나는지 확인 : 각 리스트의 value가 같은지 확인
-#만난다면 최초로 만나게 되는 시간 출력 (=인덱스 출력)
+#만난다면 최초로 만나게 되는 시간 출력 (=인덱스 출력) (단, 1초뒤여야함)
 #아니라면 -1 출력
 def meet(a, b):
-    for t in range(1, min(len(a), len(b))):
+    for t in range(1, min(len(a), len(b))): 
         if a[t]==b[t]:
             return t
     return -1
