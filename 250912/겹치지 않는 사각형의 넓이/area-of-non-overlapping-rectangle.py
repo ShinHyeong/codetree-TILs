@@ -12,7 +12,7 @@ x1[2], y1[2], x2[2], y2[2] = map(int, input().split())
 offset = 0
 for k in range(3):
     if x1[k]<0 or x2[k]<0 or y1[k]<0 or y2[k]<0:
-        if min(x1[k],x2[k],y1[k],y2[k]) < offset:
+        if min(x1[k],x2[k],y1[k],y2[k]) < -offset:
             offset = (-1) * min(x1[k],x2[k],y1[k],y2[k])
 
 #offset만큼 더해서 모든 좌표값을 양수로 만들고 시작
