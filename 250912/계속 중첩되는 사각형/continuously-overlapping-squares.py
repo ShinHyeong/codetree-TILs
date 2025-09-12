@@ -23,7 +23,7 @@ for k in range(n):
     x2[k] += offset
     y1[k] += offset
     y2[k] += offset
-    
+
 # 2) 0으로 채워진 2차원 배열 생성
 checked = [[0 for _ in range(1+100*2)] for _ in range(1+100*2)]
 
@@ -33,10 +33,7 @@ checked = [[0 for _ in range(1+100*2)] for _ in range(1+100*2)]
 # 겹치는 위치가 있다면 가장 마지막에 덮힌 색으로 취급
 # 빨간색 -> 1로 처리 / 파란색 -> 2로 처리
 for k in range(n): #k번째 직사각형 색칠
-    if k%2==0: #빨간색(=1)로 색칠
-        color = 1
-    else:
-        color = 2
+    color = 1 if k%2==0 else 2
 
     for i in range(x1[k],x2[k]):
         for j in range(y1[k],y2[k]):
