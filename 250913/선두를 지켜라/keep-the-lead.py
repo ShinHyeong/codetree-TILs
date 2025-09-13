@@ -37,14 +37,14 @@ for k in range(m):
 cnt = 0 #선두가 바뀌는 횟수
 #1시간 단위로 보면서 선두가 바뀌면 cnt+=1
 def fastest(i):
-    if i==1 and a[i]==b[i]:
+    if i==1 and a[i]==b[i]: 
         return 0
 
     if a[i]>b[i]:
-        return 1
+        return 1 #a가 선두입니다.
     elif b[i]>a[i]:
-        return -1
-    else: #a[i]==b[i]
+        return -1 #b가 선두입니다.
+    else: #a[i]==b[i] 둘다 같으면 이전 항 참고해서 선두 결정
         return fastest(i-1)
 
 # 0 0 1 -1 -1 -1 
