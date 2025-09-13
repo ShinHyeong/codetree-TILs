@@ -37,24 +37,19 @@ for k in range(m):
 cnt = 0 #선두가 바뀌는 횟수
 #1시간 단위로 보면서 선두가 바뀌면 cnt+=1
 def fastest(i):
-    if i==1 and a[i]==b[i]:
-        return 0
-
     if a[i]>b[i]:
         return 1
     elif b[i]>a[i]:
         return -1
     else: #a[i]==b[i]
-        return fastest(i-1)
+        return 0
 
 # 0 0 1 -1 -1 -1 
 # 곱해서 음수가 나오면 선두가 바뀐 것
 #print(f"{1}시 a_dist:{a[1]}, b_dist:{b[1]} -> 현재선두 {fastest(1)}")
 for i in range(2, min(len(a),len(b))):
     #print(f"{i}시 a_dist:{a[i]}, b_dist:{b[i]} -> 현재선두 {fastest(i)}")
-    #선두가 바뀌는지 어떻게 아는가? : 현재선두 != 이전선두 
-    #1) a[i]>b[i] and a[i-1]<=b[i-1]
-    #2) b[i]<a[i] and a[i-1]>=b[i-1]
+    #선두가 바뀌는지 어떻게 아는가? : 현재선두 != 이전선두 -> # 곱해서 음수가 나오면 선두가 바뀐 것
     if (fastest(i)*fastest(i-1)<0):
         #print(f"선두가 바뀌었습니다")
         cnt+=1
