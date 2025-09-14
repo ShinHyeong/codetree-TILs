@@ -37,15 +37,15 @@ for k in range(M):
 #명예의 전당에 올라가는 기준 : 매시간 마다 현재 선두인 사람
 def fastest(curr):
     if a[curr]>b[curr]: #a가 선두일 경우
-        return -1
+        return "A"
     if b[curr]>a[curr]: #b가 선두일 경우
-        return 1 
+        return "B"
     if a[curr]==b[curr]: #동시에 선두일 경우
-        return 0
+        return "A&B"
 
 cnt=0 #명예의 전당이 변경된 횟수
-for curr in range(2,len(a)): #1시간 이후부터 명예의 전당 기록 시작
-    if fastest(curr)*fastest(curr-1) <=0 : #명예의 전당이 바뀌었습니다.
+for curr in range(1,len(a)): #1시간 이후부터 명예의 전당 기록 시작
+    if fastest(curr)!=fastest(curr-1) : #명예의 전당이 바뀌었습니다.
         cnt+=1
 
 print(cnt)
