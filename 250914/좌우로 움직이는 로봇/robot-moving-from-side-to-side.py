@@ -60,9 +60,8 @@ for _ in range( len(longest) - len(shortest) ):
 #조건1 : 처음위치(idx=0)은 횟수에 포함시키지 않음. 즉, idx=1 부터 돌림
 #조건2 : 바로 직전에 같은위치에 있으면 안됨
 cnt=0
-for curr in range(1, len(longest)):
-    #print(f"curr={curr}, a[{curr}]={a[curr]}, b[{curr}]={b[curr]} -> {a[curr]==b[curr]}")
-    if a[curr]==b[curr] and a[curr-1]!=b[curr-1]:
+for curr in range(1, len(longest)): #조건1
+    if a[curr]==b[curr] and a[curr-1]!=b[curr-1]: #조건2
         cnt +=1 
 
 print(cnt)
