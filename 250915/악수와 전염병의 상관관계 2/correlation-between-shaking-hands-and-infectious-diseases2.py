@@ -22,7 +22,6 @@ handshakes.sort(key=lambda h : h[0])
 #단, 최대 k번의 악수 동안만 전염병을 옮길 수 있음 -> 카운팅
 
 for h in handshakes:
-    #print("h:", h)
     if infected[h[1]]==1 and infected[h[2]]==1: #1) 둘다 감염된 경우
         if infected_cnt[h[1]]>0: #감염시킬 수 있다면
             infected_cnt[h[1]]-=1 #감염횟수차감
