@@ -20,9 +20,6 @@ handshakes.sort(key=lambda h : h[0])
 #악수 시뮬레이션
 #양성인 개발자가 악수하면 그와 악수한 해당 개발자 양성(1) 처리
 #단, 최대 k번의 악수 동안만 전염병을 옮길 수 있음 -> 카운팅
-#print("handshakes:", handshakes)
-#print("infected:", infected)
-#print("cnt:", infected_cnt)
 
 for h in handshakes:
     #print("h:", h)
@@ -31,17 +28,17 @@ for h in handshakes:
             infected_cnt[h[1]]-=1 #감염횟수차감
         if infected_cnt[h[2]]>0: #감염시킬 수 있다면
             infected_cnt[h[2]]-=1 #감염횟수차감
-    elif infected[h[1]]==1: #1) x개발자만 감염된 경우
+
+    elif infected[h[1]]==1: #2) x개발자만 감염된 경우
         if infected_cnt[h[1]]>0: #감염시킬 수 있다면
             infected[h[2]], infected_cnt[h[2]] = 1, K #감염시키기
             infected_cnt[h[1]]-=1 #감염횟수차감
-    elif infected[h[2]]==1: #2) y개발자만 감염된 경우
+
+    elif infected[h[2]]==1: #3) y개발자만 감염된 경우
         if infected_cnt[h[2]]>0: #감염시킬 수 있다면
             infected[h[1]], infected_cnt[h[1]] = 1, K #감염시키기
             infected_cnt[h[2]]-=1 #감염횟수차감
 
-    #print("infected:", infected)
-    #print("cnt:", infected_cnt)
 
 # 모든 악수 진행한 후 최종적으로 누가 전염병에 걸리게 되었는지 (1번 개발자부터 출력)
 for i in infected[1:]:
