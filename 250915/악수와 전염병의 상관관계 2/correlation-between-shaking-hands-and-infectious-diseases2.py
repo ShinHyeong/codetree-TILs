@@ -7,7 +7,7 @@ infected_cnt = [0] * (N+1) #감염시킬수 있는 횟수
 
 # 최초 감염자 양성처리
 infected[P] = 1
-infected_cnt[P] = 2
+infected_cnt[P] = K
 
 # T번에 걸친 악수 정보(t,x,y)를 바탕으로
 #     handshakes[i][0] : t초 시점에 악수
