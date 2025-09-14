@@ -29,11 +29,11 @@ for h in handshakes:
 
     if infected[h[1]]==1: #1) x개발자만 감염된 경우
         if infected_cnt[h[1]]>0: #감염시킬 수 있다면
-            infected[h[2]], infected_cnt[h[2]] = 1,2 #감염시키기
+            infected[h[2]], infected_cnt[h[2]] = 1, K #감염시키기
             infected_cnt[h[1]]-=1 #감염횟수차감
     elif infected[h[2]]==1: #2) y개발자만 감염된 경우
         if infected_cnt[h[2]]>0: #감염시킬 수 있다면
-            infected[h[1]], infected_cnt[h[1]] = 1, 2 #감염시키기
+            infected[h[1]], infected_cnt[h[1]] = 1, K #감염시키기
             infected_cnt[h[2]]-=1 #감염횟수차감
     elif infected[h[1]]==1 and infected[h[2]]==1: #3) 둘다 감염된 경우
         if infected_cnt[h[1]]>0: #감염시킬 수 있다면
