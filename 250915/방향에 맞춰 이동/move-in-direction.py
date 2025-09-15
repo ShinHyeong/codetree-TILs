@@ -20,7 +20,7 @@ for k in range(n):
     if dir[k]=="N":
         dir_num = 3
     
-        x += dx[dir_num] * dist[k]
-        y += dy[dir_num] * dist[k]
+    x += dx[dir_num] * dist[k]
+    y += dy[dir_num] * dist[k]
 
 print(x,y)
