@@ -16,13 +16,15 @@ mapper = {
 
 dir_num = mapper[d] #현재 바라보는 방향
 
+#(0,0) (0,1) (0,2)
+#(1,0) (1,1) (1,2)
+#(2,0) (2,1) (2,2)
 # 서로 반대방향끼리 번호(idx)더하면 3이 나오게 동남북서 설계
-dxs,dys = [0,-1,1,0],[1,0,0,-1]
+dxs,dys = [0,1,-1,0], [1,0,0,-1]
 
 # 전진할 칸이 범위 밖인지 확인
 def in_range(x,y):
     return (0<=x and x<n) and (0<=y and y<n)
-
 
 #T번(=T초) 움직임
 for _ in range(t):     
@@ -35,7 +37,6 @@ for _ in range(t):
         dir_num = 3 - dir_num
     else : #범위 내이다 -> 방향 그대로, 전진
         x,y = nx, ny
-    
     
 
 #2차원 배열 (x,y) -> 현재 내가 위치한 r행 c열로 바꾸기 
