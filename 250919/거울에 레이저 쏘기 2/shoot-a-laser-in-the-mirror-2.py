@@ -42,7 +42,7 @@ k = int(input())
 dxs,dys = [-1,0,1,0],[0,1,0,-1]
 
 #레이저 쏘는 방향과 처음 부딪히는 칸
-def pos_k(k):
+def shot(k):
     x,y, dir_num = 0,0, 0
 
     if k<=n: 
@@ -85,8 +85,8 @@ def in_range(x,y):
 
 cnt=0 # 거울에 튕기는 횟수
 # 해당 위치에서 레이저를 쏜다
-dir_num = pos_k(k)[0] #해당 방향으로 레이저를 쏜다
-x,y = pos_k(k)[1] #처음 부딪히는 칸 (=시작위치)
+dir_num = shot(k)[0] #해당 방향으로 레이저를 쏜다
+x,y = shot(k)[1] #처음 부딪히는 칸 (=시작위치)
 #print(f"first:({x},{y}), dir:{dir_num}")
 while True:
     dir_num = rotate(dir_num, grid[x][y]) #회전하고 레이저방향 업데이트
