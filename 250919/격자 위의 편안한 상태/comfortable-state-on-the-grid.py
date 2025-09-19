@@ -3,7 +3,7 @@ points = [tuple(map(int, input().split())) for _ in range(m)]
 
 # Please write your code here.
 # 0이 채워진 n*n 크기의 격자
-grid = [[0 for _ in range(n*n)] for _ in range(n*n)]
+grid = [[0 for _ in range(n)] for _ in range(n)]
 
 # (0,0) (0,1)
 # (1,0) (1,1)
