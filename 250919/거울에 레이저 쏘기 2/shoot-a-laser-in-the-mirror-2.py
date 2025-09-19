@@ -59,12 +59,12 @@ def shot(k):
         for i in range(n*1+1,k):
             x+=1
     elif k<=n*3:
-        dir_num = 1 #북
+        dir_num = 0 #북
         x,y = n-1,n-1
         for i in range(n*2+1,k):
             y-=1
     else: #k<=n*4
-        dir_num = 0 #동
+        dir_num = 1 #동
         x,y = n-1,0
         for i in range(n*3+1,k):
             x-=1
