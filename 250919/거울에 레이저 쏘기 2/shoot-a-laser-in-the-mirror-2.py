@@ -38,8 +38,8 @@ k = int(input())
 
 #(0,0)(0,1)
 #(1,0)(1,1)
-#동북남서 0 12 3
-dxs,dys = [0,-1,1,0],[1,0,0,-1]
+#북동남서 0123
+dxs,dys = [-1,0,1,0],[0,1,0,-1]
 
 #레이저 쏘는 방향과 처음 부딪히는 칸
 def pos_k(k):
@@ -64,16 +64,17 @@ def pos_k(k):
 
     return (dir_num, (x,y))
 
-# \ 북->동 /동->북 /남->서 /서->남 으로 바뀜 : (북,동)(남,서) (0,1)(2,3)
-# / 북->서 /동->남 /남->동 /서->북 으로 바뀜 : (북,서)(동,남) (0,3)(1,2)
+#북동남서 0123
+# \ 화살표방향: 남->동 /동->남 /북->서 /서->북 으로 바뀜 : (동,남)(북,서) (1,2)(0,3)
+# / 화살표방향: 북->동 /동->북 /남->서 /서->남 으로 바뀜 : (북,동)(남,서) (1,2)(2,3)
 def rotate(dir_num, mirror):
-    if mirror == "\\":
+    if mirror == "/":
         if dir_num == 0 or dir_num==2:
             dir_num +=1
         elif dir_num ==1 or dir_num==3:
             dir_num -=1
         
-    elif mirror == "/":
+    elif mirror == "\\":
         dir_num = 3 - dir_num 
     
     return dir_num
@@ -86,9 +87,11 @@ cnt=0 # 거울에 튕기는 횟수
 # 해당 위치에서 레이저를 쏜다
 dir_num = pos_k(k)[0] #해당 방향으로 레이저를 쏜다
 x,y = pos_k(k)[1] #처음 부딪히는 칸 (=시작위치)
+#print(f"first:({x},{y}), dir:{dir_num}")
 while True:
     dir_num = rotate(dir_num, grid[x][y]) #회전하고 레이저방향 업데이트
     cnt+=1#카운팅
+    #print(f"hit: ({x},{y}), dir:{dir_num} ")
     #다음칸으로 가기 전 다음칸이 격자범위에 있는지 확인
     nx,ny = x+dxs[dir_num],y+dys[dir_num]
     if in_range(nx,ny):
