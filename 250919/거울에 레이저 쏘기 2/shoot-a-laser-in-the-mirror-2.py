@@ -94,11 +94,9 @@ cnt=0 # 거울에 튕기는 횟수
 # 해당 위치에서 레이저를 쏜다
 dir_num = shot(k)[0] #해당 방향으로 레이저를 쏜다
 x,y = shot(k)[1] #처음 부딪히는 칸 (=시작위치)
-#print(f"first:({x},{y}), dir:{dir_num}")
 while True:
     dir_num = rotate(dir_num, grid[x][y]) #회전하고 레이저방향 업데이트
     cnt+=1#카운팅
-    #print(f"hit: ({x},{y}), dir:{dir_num} ")
     #다음칸으로 가기 전 다음칸이 격자범위에 있는지 확인
     nx,ny = x+dxs[dir_num],y+dys[dir_num]
     if in_range(nx,ny):
