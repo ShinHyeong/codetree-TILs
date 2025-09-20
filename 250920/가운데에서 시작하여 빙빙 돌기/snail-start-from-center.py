@@ -36,26 +36,23 @@ def print_rect():
 
 x,y = n//2, n//2 #nxn 크기의 정사각형 가운데에서 시작
 grid[x][y]=1 #1부터 채운다
-dir_num =0 #이동하는 방향 초기화 : 동
+dir_num =0 #이동하는 방향 초기화 : 동쪽
+move_cnt = 1 #이동한 칸
+move_limit = 1 #이동해야하는 칸
+for i in range(2, n*n+1): #2~n*n 를 채워넣는다
+    #1. 한칸 이동
+    x,y = x+dxs[dir_num],y+dys[dir_num] #다음칸으로 이동한다
+    grid[x][y]=i #숫자를 채워넣는다
+    move_cnt+=1
 
-i = 2
-step = 1
-
-while i <= n*n: #2~n*n 를 채워넣는다
-    if step==n:
-        step=n-1
-    for _ in range(2):
-        for _ in range(step):
-            x,y = x+dxs[dir_num],y+dys[dir_num] #다음칸으로 이동한다
-            grid[x][y]=i #숫자를 채워넣는다
-            i+=1
-            if i>n*n:
-                break
-        if i>n*n:
-                break
+    #2. 방향 전환
+    if move_cnt == move_limit:  #이동해야하는 칸만큼 이동했다면
         dir_num = (dir_num+1)%4 #동->북->서->남 으로 이동방향 변경
-    step+=1
-
+        move_cnt = 0 #이동한 칸 초기화
+        
+        #만약 바뀐 이동방향이 서쪽 or 동쪽이라면 이동해야하는칸 +1처리
+        if dir_num == 2 or dir_num==0:
+            move_limit+=1
 
 #완성된 사각형 출력
 for i in range(len(grid)):
