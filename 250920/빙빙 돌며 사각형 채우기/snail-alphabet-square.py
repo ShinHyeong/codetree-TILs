@@ -29,7 +29,7 @@ for i in range(66, 65+n*m): #B~Z까지 채우는데 Z이후엔 다시 A부터 �
     x,y = x+dxs[dir_num],y+dys[dir_num]#다음칸으로 이동한다
     
     if i > 90: #Z이후엔 다시 A부터 채운다 #A의 아스키 코드 : 65 #Z의 아스키 코드 : 90
-        i = 65 + (i - 91)
+        i = (i%91)+65
     grid[x][y] = chr(i) #알파벳을 채운다
 
 for i in range(len(grid)):
