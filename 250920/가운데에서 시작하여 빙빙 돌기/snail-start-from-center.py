@@ -6,13 +6,6 @@ grid = [[0] * n for _ in range(n)]
 #동->북->서->남 : x,y변화량
 dxs,dys = [0,-1,0,1],[1,0,-1,0]
 
-#완성된 사각형 출력
-def print_rect():
-    for i in range(len(grid)):
-        for j in range(len(grid[0])):
-            print(grid[i][j], end=' ')
-        print()
-
 ### 로직 ###
 #n=3
 #현재칸에서
@@ -37,7 +30,7 @@ def print_rect():
 x,y = n//2, n//2 #nxn 크기의 정사각형 가운데에서 시작
 grid[x][y]=1 #1부터 채운다
 dir_num =0 #이동하는 방향 초기화 : 동쪽
-move_cnt = 1 #이동한 칸
+move_cnt = 0 #이동한 칸
 move_limit = 1 #이동해야하는 칸
 for i in range(2, n*n+1): #2~n*n 를 채워넣는다
     #1. 한칸 이동
