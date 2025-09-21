@@ -18,8 +18,8 @@ move_limit = 3 #점프가능횟수
 # A (0,0) -> B -> C -> D (r-1,c-1) 지점이라고 할때
 # 1. B지점을 찾는다
 B_list = []
-for i in range(R):
-    for j in range(C):
+for i in range(x+1, R):
+    for j in range(y+1, C):
         if is_diff(x,y,i,j):
             B_list.append((i,j))
 
@@ -31,6 +31,6 @@ for b in B_list:
         for j in range(b[1]+1, C):
             if is_diff(b[0],b[1],i,j) and (i<R-1 and j<C-1):
                 cnt+=1
-print(cnt) 
+print(cnt if grid[x][y]!=grid[R-1][C-1] else 0) #만약 시작점과 끝점의 색이 같다면 0
 
 
