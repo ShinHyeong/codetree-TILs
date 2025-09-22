@@ -20,15 +20,14 @@ def pos_zero(a):
         if a[i]==0:
             return i
     return -1
-    
+
 if pos_zero(a)>=0:
     a[pos_zero(a)]=1
 else :
-    for i in range(len(a)-1, -1):
+    for i in range(len(a)-1, -1,-1):
         if a[i]==1:
             a[i]=0
             break
-
 sum_val=0
 for i in range(len(a)):
     sum_val += a[i]*(2**(len(a)-1-i))
