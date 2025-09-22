@@ -8,28 +8,27 @@ a = input()
 a = list(map(int,a)) #int로 이루어진 문자열로 변환
 
 ## 로직 ##
-# 1. 앞에서부터(idx=0) 하나씩 꺼내서 가장 앞에 있는 0을 1로 바꿔준다
+# 1. a의 숫자 하나씩 바꿔보고
 # 2. 이를 십진수로 바꾼다
 # ex. 110 -> 1*(2**2) + 1*(2**1) + 0*(2**0)
-# 예외 : 만약 전부 1로만 채워지는 경우도 있으니
-# 그렇다면 가장 뒤에 있는 1을 0으로 바꿔준다
+# 3. 최댓값인지 확인한다
 
-# 0이 존재하는가? 존재한다면 가장 앞에 있는 인덱스를 리턴하고 아니라면 -1을 리턴한다
-def pos_zero(a):
-    for i in range(len(a)):
-        if a[i]==0:
-            return i
-    return -1
 
-if pos_zero(a)>=0:
-    a[pos_zero(a)]=1
-else :
-    for i in range(len(a)-1, -1,-1):
-        if a[i]==1:
-            a[i]=0
-            break
-sum_val=0
+max_val = 0
 for i in range(len(a)):
-    sum_val += a[i]*(2**(len(a)-1-i))
+    #a의 복사본 사용하여 초기화
+    na = a.copy()
+    
+    #XOR 1 연산 : 0->1, 1->0
+    na[i] = na[i]^1 
+    
+    #십진수로 바꾼다
+    sum_val = 0
+    for i in range(len(na)):
+        sum_val += na[i]*(2**(len(na)-1-i))
 
-print(sum_val)
+    #최댓값인지 확인
+    max_val = max(sum_val, max_val)
+
+    
+print(max_val)
