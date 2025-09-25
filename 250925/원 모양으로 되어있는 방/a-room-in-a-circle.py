@@ -29,7 +29,7 @@ min_dist = sys.maxsize
 for start_idx in range(n): #시작하는 방 하나 정하고
     sum_dist=0
     for end_idx in range(n): #끝나는 방 하나씩 돌면서 그에 대한 거리합을 구한다 
-        dist = ((end_idx + n) - start_idx)%n #(end_idx에서 돌고 돌아 몇 번째 방) - start_idx
+        dist = ((end_idx + n) - start_idx)%n 
         sum_dist += a[end_idx] * dist #거리합 = (인원 수) * (방 사이의 거리)
     
     #최소값 계산
