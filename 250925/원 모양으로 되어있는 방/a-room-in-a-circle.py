@@ -19,19 +19,20 @@ a = [int(input()) for _ in range(n)]
 # 조건 분기로 처리하는 대신 모듈러 연산으로 처리하자
 # 원형 = 시계 = 모듈러 연산 (%)
 # 모듈러 연산의 의미: 돌고 돌아 몇 번째 방?
-# (end_idx + n) - start_idx
+# 
+# ((end_idx + n) - start_idx)%n
 # : (end_idx에서 돌고 돌아 몇 번째 방) - start_idx
 
 
 #어떤 방에서 시작해야 각 방에 정해진 인원이 들어가는데까지의 거리의 합을 최소화할 수 있는지
 min_dist = sys.maxsize
 for start_idx in range(n): #시작하는 방 하나 정하고
-    
+    sum_dist=0
     for end_idx in range(n): #끝나는 방 하나씩 돌면서 그에 대한 거리합을 구한다 
-        dist = (end_idx + n) - start_idx #(end_idx에서 돌고 돌아 몇 번째 방) - start_idx
+        dist = ((end_idx + n) - start_idx)%n #(end_idx에서 돌고 돌아 몇 번째 방) - start_idx
         sum_dist += a[end_idx] * dist #거리합 = (인원 수) * (방 사이의 거리)
     
     #최소값 계산
-    min_dist=min(dist,min_dist)
+    min_dist=min(sum_dist,min_dist)
 
 print(min_dist)
