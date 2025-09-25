@@ -21,7 +21,7 @@ a = [int(input()) for _ in range(n)]
 # 모듈러 연산의 의미: 돌고 돌아 몇 번째 방?
 # 
 # ((end_idx + n) - start_idx)%n
-# : (end_idx에서 돌고 돌아 몇 번째 방) - start_idx
+# : (end_idx+1바퀴)에서 start_idx까지 돌고 돌아 몇 번째 방?
 
 
 #어떤 방에서 시작해야 각 방에 정해진 인원이 들어가는데까지의 거리의 합을 최소화할 수 있는지
