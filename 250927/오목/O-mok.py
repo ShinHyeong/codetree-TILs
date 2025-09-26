@@ -4,74 +4,52 @@ board = [list(map(int, input().split())) for _ in range(19)]
 def in_range(x,y):
     return (0<=x and x<len(board)) and (0<=y and y<len(board))
 
-#가로로 5번 연속됨 확인
-#한번이라도 아니라면 False
-#모두 다 통과했다면 True
-def isHSeq(i,j):
-    for k in range(5):
-        if not in_range(i,j+k) or board[i][j+k]!=board[i][j]:
-            return False
-    return True
+# (0,0)(0,1)(0,2)
+# (1,0)(1,1)(1,2)
+# (2,0)(2,1)(2,2)
+# 동: (1,1)->(1,2) i,j+1
+# 동남: (1,1)->(2,2) i+1,j+1
+# 남: (1,1)->(2,1) i+1,j
+# 남서: (1,1)->(2,0) i+1,j-1
+# 서: (1,1)->(1,0) i,j-1
+# 서북: (1,1)->(0,0) i-1,j-1
+# 북: (1,1)->(0,1) i-1,j
+# 북동: (1,1)->(0,2) i-1,j+1
+dxs, dys = [0,1,1,1,0,-1,-1,-1],[1,1,0,-1,-1,-1,0,1]
 
-#세로로 5번 연속됨 확인
-#한번이라도 아니라면 False
-#모두 다 통과했다면 True
-def isVSeq(i,j):
-    for k in range(5):
-        if not in_range(i+k,j) or board[i+k][j]!=board[i][j]:
-            return False
-    return True
+#모든 좌표에서 다 확인해보자
+for i in range(len(board)):
+		for j in range(len(board[0]):
+				if board[i][j] == 0:
+						continue
+				
+				for dx,dy in zip(dxs,dys):
+				    # 각 반복에서:
+					  # 1번째: dx=0,  dy=1   (→ 방향) 
+				    # 2번째: dx=1,  dy=-1  (↙ 방향)
+				    # 3번째: dx=1,  dy=0   (↓ 방향)
+				    # 4번째: dx=1,  dy=1   (↘ 방향)
+				    # 5번째: dx=-1, dy=-1  (↖ 방향)
+				    # 6번째: dx=-1, dy=0   (↑ 방향)
+				    # 7번째: dx=-1, dy=1   (↗ 방향)
+				    # 8번째: dx=0,  dy=-1  (← 방향)
+				    
+				    #방향 하나 정해졌으면
+				    #5번 연속인지 검사한다
+				    isSeq=True
+						curr_x, curr_y = i, j
+						for _ in range(5): 
+								nx,ny = curr_x+dx,curr_y+dy
+								if not in_range(nx,ny) or board[nx][ny]==board[i][j]: #범위밖 or 연속x라면 검사종료
+										isSeq=False
+										break
+								curr_x,curr_y = nx,ny #계속검사
+						
+						# 연속x -> 다음 방향으로 검사한다
+						# 연속o -> 루프종료
+						if isSeq==True:
+								print(board[i][j]) #승자출력
+								print(i+2*dx+1, j+2*dy+1) #가운데 x,y출력
+								sys.exit()
 
-#하향 대각선 방향으로 5번 연속됨 확인
-#한번이라도 아니라면 False
-#모두 다 통과했다면 True
-def isDiagDownSeq(i,j):
-    for k in range(5):
-        if not in_range(i+k,j+k) or board[i+k][j+k]!=board[i][j]:
-            return False
-    return True
-
-#상향 대각선 방향으로 5번 연속됨 확인
-#한번이라도 아니라면 False
-#모두 다 통과했다면 True
-def isDiagUpSeq(i,j):
-    for k in range(5):
-        if not in_range(i-k,j+k) or board[i-k][j+k]!=board[i][j]:
-            return False
-    return True
-
-# 이겼는지 검사하는 함수 : 해당인덱스의 숫자 포함 연속(가로or세로or대각선)으로 같은 숫자 5개 나오는지 검사
-def is_win(i,j):
-    return isHSeq(i,j) or isVSeq(i,j) or isDiagDownSeq(i,j) or isDiagUpSeq(i,j)
-
-#바둑판을 돌며 
-#연속으로 같은 숫자가 5개이상인지 확인한다 
-    #승자를 결정하고
-    #종료한다
-def get_winner():
-    winner=0
-    for i in range(len(board)):
-        for j in range(len(board[0])):
-            if board[i][j]>0 and is_win(i,j): #승부가 결정되었다면
-                winner = board[i][j]
-                return winner
-    return winner
-
-#출력1: 누가이겼는지 출력 - 아직 승부가 결정되지 않으면 0 출력
-winner = get_winner()
-print(winner)
-
-#출력2 : 만약 검/흰이 이겼다면 그 연속된 5개의 바둑알 중 가운데 위치한 바둑알의 가로줄번호,세로줄번호 공백두고 출력
-if winner > 0:
-    k=2
-    for i in range(len(board)):
-        for j in range(len(board[0])):
-            if board[i][j]>0 and is_win(i,j):
-                if isHSeq(i,j): #board[i][j+k]
-                    print(i+1, j+k+1)
-                elif isVSeq(i,j): #board[i+k][j]
-                    print(i+k+1, j+1)
-                elif isDiagDownSeq(i,j): #board[i+k][j+k]
-                    print(i+k+1, j+k+1) 
-                elif isDiagUpSeq(i,j): #board[i-k][j+k]
-                    print(i-k+1, j+k+1)
+print(0)
