@@ -6,51 +6,48 @@ def in_range(x,y):
 
 
 def find_winner():
-    # (0,0)(0,1)(0,2)
-    # (1,0)(1,1)(1,2)
-    # (2,0)(2,1)(2,2)
-    # 동: (1,1)->(1,2) i,j+1
-    # 동남: (1,1)->(2,2) i+1,j+1
-    # 남: (1,1)->(2,1) i+1,j
-    # 남서: (1,1)->(2,0) i+1,j-1
-    # 서: (1,1)->(1,0) i,j-1
-    # 서북: (1,1)->(0,0) i-1,j-1
-    # 북: (1,1)->(0,1) i-1,j
-    # 북동: (1,1)->(0,2) i-1,j+1
-    dxs, dys = [0,1,1,1,0,-1,-1,-1],[1,1,0,-1,-1,-1,0,1]
+		"""
+		오목 게임의 승자를 찾는 함수
+		Returns:
+				tuple: (승자, 중앙x좌표, 중앙y좌표) or (None, None, None)
+		"""
+		DIRECTIONS = [
+				# (0,0)(0,1)(0,2)
+		    # (1,0)(1,1)(1,2)
+		    # (2,0)(2,1)(2,2)
+		    (0,1), #동
+				(1,1), #남동
+				(1,0), #남
+				(1,-1), #남서
+				(0,-1), #서
+				(-1,-1), #북서
+				(-1,0), #북
+				(-1,1)  #북동
+		]
+		
+		for i in range(len(board)):
+				for j in range(len(board[0])):
+						if board[i][j]==0:
+								continue
+						
+						for dx,dy in DIRECTIONS: #각 방향별로
+								if isSeq5(i,j,dx,dy): #5개 연속인지 확인
+										return board[i][j], i+2*dx+1, j+2*dy+1
+		
+		return None,None,None
 
-    #모든 좌표에서 다 확인해보자
-    for i in range(len(board)):
-        for j in range(len(board[0])):
-            if board[i][j] == 0:
-                continue
-            
-            for dx,dy in zip(dxs,dys):
-                # 각 반복에서:
-                    # 1번째: dx=0,  dy=1   (→ 방향) 
-                # 2번째: dx=1,  dy=-1  (↙ 방향)
-                # 3번째: dx=1,  dy=0   (↓ 방향)
-                # 4번째: dx=1,  dy=1   (↘ 방향)
-                # 5번째: dx=-1, dy=-1  (↖ 방향)
-                # 6번째: dx=-1, dy=0   (↑ 방향)
-                # 7번째: dx=-1, dy=1   (↗ 방향)
-                # 8번째: dx=0,  dy=-1  (← 방향)
-                
-                #방향 하나 정해졌으면
-                #5번 연속인지 검사한다
-                isSeq=True
-                for k in range(5): 
-                    nx,ny = i+k*dx, j+k*dy
-                    if not in_range(nx,ny) or board[nx][ny]!=board[i][j]: #범위밖 or 연속x라면 검사종료
-                        isSeq=False
-                        break
-                    
-                # 연속x -> 다음 방향으로 검사한다
-                # 연속o -> 루프종료
-                if isSeq==True:
-                    return board[i][j], i+2*dx+1, j+2*dy+1
-    
-    return None, None, None
+def isSeq5(i,j,dx,dy):
+		""""
+		특정방향으로 5개 연속인지 확인
+		""""
+		color = board[i][j]
+		
+		for k in range(5):
+				nx,ny = i+k*dx,j+k*dy
+				if not in_range(nx,ny) or board[nx][ny]!=color #격자범위를 벗어나거나 color와 다르면
+						return False
+		
+		return True
 
 winner, x, y = find_winner()
 if winner:
@@ -58,3 +55,4 @@ if winner:
     print(x,y)
 else:
     print(0)
+						
