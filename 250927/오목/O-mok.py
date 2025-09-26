@@ -9,7 +9,7 @@ def in_range(x,y):
 #모두 다 통과했다면 True
 def isHSeq(i,j):
     for k in range(5):
-        if not in_range(i,j) and board[i][j]==board[i][j+k]:
+        if not in_range(i,j+k) or board[i][j+k]!=board[i][j]:
             return False
     return True
 
@@ -18,7 +18,7 @@ def isHSeq(i,j):
 #모두 다 통과했다면 True
 def isVSeq(i,j):
     for k in range(5):
-        if not in_range(i,j) and board[i][j]==board[i+k][j]:
+        if not in_range(i+k,j) or board[i+k][j]!=board[i][j]:
             return False
     return True
 
@@ -27,7 +27,7 @@ def isVSeq(i,j):
 #모두 다 통과했다면 True
 def isDiagDownSeq(i,j):
     for k in range(5):
-        if not in_range(i,j) and board[i][j]==board[i+k][j+k]:
+        if not in_range(i+k,j+k) or board[i+k][j+k]!=board[i][j]:
             return False
     return True
 
@@ -36,7 +36,7 @@ def isDiagDownSeq(i,j):
 #모두 다 통과했다면 True
 def isDiagUpSeq(i,j):
     for k in range(5):
-        if not in_range(i,j) and board[i][j]==board[i-k][j+k]:
+        if not in_range(i-k,j+k) or board[i-k][j+k]!=board[i][j]:
             return False
     return True
 
@@ -52,10 +52,12 @@ def get_winner():
     winner=0
     for i in range(len(board)):
         for j in range(len(board[0])):
-            if is_win(i,j): #승부가 결정되었다면
+            if board[i][j]>0 and is_win(i,j): #승부가 결정되었다면
                 winner = board[i][j]
                 return winner
     return winner
+
+#print(isHSeq(3,2), isVSeq(3,2), isDiagDownSeq(3,2), isDiagUpSeq(3,2))
 
 #출력1: 누가이겼는지 출력 - 아직 승부가 결정되지 않으면 0 출력
 winner = get_winner()
@@ -66,11 +68,12 @@ if winner > 0:
     k=2
     for i in range(len(board)):
         for j in range(len(board[0])):
-            if isHSeq(i,j): #board[i][j+k]
-                print(i+1, j+k+1)
-            if isVSeq(i,j): #board[i+k][j]
-                print(i+k+1, j+1)
-            if isDiagDownSeq(i,j): #board[i+k][j+k]
-                print(i+k+1, j+k+1) 
-            if isDiagUpSeq(i,j): #board[i-k][j+k]
-                print(i-k+1, j+k+1)
+            if board[i][j]>0 and is_win(i,j):
+                if isHSeq(i,j): #board[i][j+k]
+                    print(i+1, j+k+1)
+                if isVSeq(i,j): #board[i+k][j]
+                    print(i+k+1, j+1)
+                if isDiagDownSeq(i,j): #board[i+k][j+k]
+                    print(i+k+1, j+k+1) 
+                if isDiagUpSeq(i,j): #board[i-k][j+k]
+                    print(i-k+1, j+k+1)
