@@ -57,8 +57,6 @@ def get_winner():
                 return winner
     return winner
 
-#print(isHSeq(3,2), isVSeq(3,2), isDiagDownSeq(3,2), isDiagUpSeq(3,2))
-
 #출력1: 누가이겼는지 출력 - 아직 승부가 결정되지 않으면 0 출력
 winner = get_winner()
 print(winner)
@@ -71,9 +69,9 @@ if winner > 0:
             if board[i][j]>0 and is_win(i,j):
                 if isHSeq(i,j): #board[i][j+k]
                     print(i+1, j+k+1)
-                if isVSeq(i,j): #board[i+k][j]
+                elif isVSeq(i,j): #board[i+k][j]
                     print(i+k+1, j+1)
-                if isDiagDownSeq(i,j): #board[i+k][j+k]
+                elif isDiagDownSeq(i,j): #board[i+k][j+k]
                     print(i+k+1, j+k+1) 
-                if isDiagUpSeq(i,j): #board[i-k][j+k]
+                elif isDiagUpSeq(i,j): #board[i-k][j+k]
                     print(i-k+1, j+k+1)
