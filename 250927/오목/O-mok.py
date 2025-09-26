@@ -44,7 +44,7 @@ def isSeq5(i,j,dx,dy):
     
     for k in range(5):
         nx,ny = i+k*dx,j+k*dy
-        if not in_range(nx,ny) or board[nx][ny]!=color #격자범위를 벗어나거나 color와 다르면
+        if not in_range(nx,ny) or board[nx][ny]!=color: #격자범위를 벗어나거나 color와 다르면
             return False
     
     return True
