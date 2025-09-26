@@ -37,9 +37,9 @@ def find_winner():
     return None,None,None
 
 def isSeq5(i,j,dx,dy):
-    """"
+    """
     특정방향으로 5개 연속인지 확인
-    """"
+    """
     color = board[i][j]
     
     for k in range(5):
