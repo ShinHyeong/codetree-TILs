@@ -21,7 +21,6 @@ for i in range(len(c)):
 max_val = 0
 for start_idx in range(len(arr)-k+1): #start_idx는 0~len(arr)-k까지 가능하다
     sum_val = sum(arr[start_idx:start_idx+k+1]) #start_idx+0~(start_idx+k)의 합을 구한다
-    #print(f"[{start_idx}:{start_idx+k}] {sum_val}")
     max_val = max(sum_val, max_val)
 #최대점수 출력
 print(max_val)
