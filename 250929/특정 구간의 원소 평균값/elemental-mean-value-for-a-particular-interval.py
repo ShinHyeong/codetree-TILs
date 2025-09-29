@@ -14,7 +14,7 @@ for start_idx in range(n):
 
         part = arr[start_idx:end_idx+1]
         sum_val = sum(part) 
-        avg_val = sum_val//(len(part))
+        avg_val = sum_val/(len(part))
         
         found = False
         if avg_val in part:
