@@ -19,8 +19,11 @@ for i in range(len(c)):
 #연속한 k칸의 총합을 구한 후 
 #최대점수인지 확인한다
 max_val = 0
+if k>len(arr):
+    max_val = sum(arr)
 for start_idx in range(len(arr)-k+1): #start_idx는 0~len(arr)-k까지 가능하다
     sum_val = sum(arr[start_idx:start_idx+k+1]) #start_idx+0~(start_idx+k)의 합을 구한다
+    #print(f"[{start_idx}:{start_idx+k}] {sum_val}")
     max_val = max(sum_val, max_val)
 #최대점수 출력
 print(max_val)
