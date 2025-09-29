@@ -8,7 +8,7 @@ for _ in range(n):
 
 # Please write your code here.
 # 0으로 채워진 n개의 칸을 만들고 해당위치에 점수를 하나씩 집어넣는다
-arr = [0] * max(x)
+arr = [0] * 10000
 for i in range(len(c)):
     pos = x[i]
     if c[i]=="H":
@@ -19,8 +19,6 @@ for i in range(len(c)):
 #연속한 k칸의 총합을 구한 후 
 #최대점수인지 확인한다
 max_val = 0
-if k>len(arr):
-    max_val = sum(arr)
 for start_idx in range(len(arr)-k+1): #start_idx는 0~len(arr)-k까지 가능하다
     sum_val = sum(arr[start_idx:start_idx+k+1]) #start_idx+0~(start_idx+k)의 합을 구한다
     #print(f"[{start_idx}:{start_idx+k}] {sum_val}")
