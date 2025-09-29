@@ -10,7 +10,7 @@ arr = list(map(int, input().split()))
 
 cnt=0
 for start_idx in range(n):
-    for end_idx in range(start_idx+1, n):
+    for end_idx in range(start_idx, n):
 
         part = arr[start_idx:end_idx+1]
         sum_val = sum(part) 
