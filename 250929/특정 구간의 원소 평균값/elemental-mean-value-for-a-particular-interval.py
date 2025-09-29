@@ -14,12 +14,13 @@ for start_idx in range(n):
 
         part = arr[start_idx:end_idx+1]
         sum_val = sum(part) 
-        avg_val = sum_val//(len(part))
+        avg_val = sum_val/(len(part))
         
         found = False
         for ele in part:
             if ele == avg_val:
                 found = True
+                break
 
         if found==True:
             cnt+=1
