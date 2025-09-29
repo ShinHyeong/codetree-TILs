@@ -17,8 +17,10 @@ for start_idx in range(n):
         avg_val = sum_val/(len(part))
         
         found = False
-        if avg_val in part:
-            found=True
+        for ele in part:
+            if ele == avg_val:
+                found = True
+                break
 
         if found==True:
             cnt+=1
