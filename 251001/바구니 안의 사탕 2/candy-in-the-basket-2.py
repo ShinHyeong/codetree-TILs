@@ -13,7 +13,8 @@ for _ in range(N):
 baskets = [0] * 101 #0 ~ 100
 for i in range(len(pos)):
     position = pos[i]
-    baskets[position] = candy[i]
+    baskets[position] += candy[i] #같은 위치에 여러 바구니가 놓이는게 가능하므로 누적한다
+
 
 #중심점을 잘 잡아 구간에 있는 사탕수가 최대인지 확인후 출력
 max_val = 0
