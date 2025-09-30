@@ -13,14 +13,10 @@ cnt=0
 for start_idx in range(N-M+1): #시작인덱스값 : 0 ~ (n-m)
         part = A[start_idx:start_idx+M]
         
-        isValid = True
         sorted_part =sorted(part)
         sorted_B = sorted(B)
-        for p,b in zip(sorted_part,sorted_B):
-            if p!=b:
-                isValid = False
-        if isValid:
-            #print(part)
+        if sorted_part==sorted_B:
             cnt+=1
+        
 
 print(cnt)
