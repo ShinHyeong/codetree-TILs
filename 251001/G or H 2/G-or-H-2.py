@@ -32,8 +32,6 @@ def isSameCnt(start,end):
             g_cnt+=1
         elif arr[i]==2:
             h_cnt+=1
-    if g_cnt==0 and h_cnt==0:
-        return False
     return g_cnt==h_cnt
 
 #===== 메인 로직 =====
@@ -56,7 +54,6 @@ for start in range(len(arr)):
         if arr[end] == 0:
             continue
         if isOnlyOneAlpha(start,end) or isSameCnt(start,end):
-            #print(f"({start}, {end})")
             size = end-start
             max_size = max(size, max_size)
 print(max_size)
