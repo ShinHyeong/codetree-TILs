@@ -2,6 +2,12 @@ N, M = map(int, input().split())
 A = list(map(int, input().split()))
 B = list(map(int, input().split()))
 
+def in_B(ele):
+    for b in B:
+        if b==ele:
+            return True
+    return False
+
 # Please write your code here.
 # 길이가 m인 a의 부분이 b의 원소 순서 바꾼거에 해당하는지
 # 1. 길이가 m인 a의 부분 만들기
@@ -12,9 +18,10 @@ B = list(map(int, input().split()))
 cnt=0
 for start_idx in range(N-M+1): #시작인덱스값 : 0 ~ (n-m)
         part = A[start_idx:start_idx+M]
+        
         isValid = True
-        for i in range(M):
-            if not B[i] in part:
+        for p in part:
+            if not in_B(p):
                 isValid = False
         if isValid:
             cnt+=1
