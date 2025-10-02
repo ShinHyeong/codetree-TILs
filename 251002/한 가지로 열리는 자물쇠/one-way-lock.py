@@ -3,6 +3,7 @@ a, b, c = map(int, input().split())
 
 # Please write your code here.
 cnt=0
+n = N
 for i in range(1,n+1):
     for j in range(1,n+1):
         for k in range(1,n+1):
