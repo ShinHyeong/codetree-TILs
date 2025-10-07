@@ -29,18 +29,8 @@ def get_cnt1(num, d1, d2, d3):
 def get_cnt2(num, d1, d2, d3):
     cnt2=0
     f,s,t = get_digit(num)
-    if d1==s:
+    if d1==s or d1==t or d2==f or d2==t or d3==f or d3==s:
         cnt2+=1
-    if d1==t:
-        cnt2+=1
-    if d2==f:
-        cnt2+=1
-    if d2==t:
-        cnt2+=1
-    if d3==f:
-        cnt2+=1
-    if d3==s:
-        cnt2+=1    
     return cnt2
 
 answer = 0 #후보의 수
@@ -52,6 +42,7 @@ for d1 in range(1,10):
             if d1==d2 or d1==d3 or d2==d3: #서로 다르지 않으면 후보 탈락
                 continue
             
+            #이 후보가 모든 조건을 통과하는가?
             counter = 0
             for i in range(n):
                 cnt1,cnt2 = 0,0
@@ -62,11 +53,9 @@ for d1 in range(1,10):
                 
                 if cnt1==b[i] and cnt2==c[i]:
                     counter+=1
-                #print(a[i],d1,d2,d3,cnt1,cnt2,counter)
             
-            #모든 num의 1번카운트, 2번카운트와 일치하면 후보 추가
+            #모든 num의 1번카운트, 2번카운트와 일치하면 후보 확정
             if counter == n:
                 answer += 1
-                
             
 print(answer)
