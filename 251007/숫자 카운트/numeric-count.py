@@ -29,7 +29,11 @@ def get_cnt1(num, d1, d2, d3):
 def get_cnt2(num, d1, d2, d3):
     cnt2=0
     f,s,t = get_digit(num)
-    if d1==s or d1==t or d2==f or d2==t or d3==f or d3==s:
+    if d1==s or d1==t:
+        cnt2+=1
+    if d2==f or d2==t:
+        cnt2+=1
+    if d3==f or d3==s:
         cnt2+=1
     return cnt2
 
