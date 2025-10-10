@@ -30,12 +30,14 @@ for i in range(M):
             bad = True
             break
     
-    #해당 치즈를 먹은 다른 사람 수 구하기
-    for k in range(D):
-        if m[k]==m[i]:
-            cnt+=1
+    sick_list = []
+    for k in range(D): #기록을 하나씩 보는데
+        if m[k]==m[i]: #상한 치즈를 먹은 사람이라면
+            if p[k] in sick_list: #단, 이미 카운팅된 사람은 세지않음
+                continue
+            sick_list.append(p[k]) #카운팅
     
     #최대로 아픈 사람 수인지 확인
-    max_val = max(cnt,max_val)
+    max_val = max(len(sick_list),max_val)
 
 print(max_val)
