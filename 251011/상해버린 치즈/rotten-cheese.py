@@ -25,11 +25,16 @@ for cheese_idx in range(M): #치즈별로
     cnt = 0
 
     #상한 치즈 후보인지 확인
-    for j in range(S): #아픈사람 발생 기록을 본다
-        if t[cheese_idx] < sick_t[j]: # 조건1:해당치즈 먹은 시각 < 환자 발생한 시각
-            bad_condition1 = True
-            break
+
+    # 조건1:해당치즈 먹은 시각 < 환자 발생한 시각
+    for i in range(D):
+        for j in range(S):
+            if m[i]==cheese_idx: #치즈먹은기록에서 해당치즈먹은 시각을 찾고
+                if t[i] < sick_t[j]:
+                    bad_condition1 = True
+                    break
     
+    #조건2: 아픈사람 모두가 해당치즈를 먹었다
     for sick_idx in range(S): #아픈사람이 해당치즈를 먹었는지 치즈먹은기록에서 확인한다
         if not (sick_p[sick_idx] in p): #아픈사람 한 사람이라도 해당 치즈를 먹지 않으면 이 치즈는 상한 치즈가 아니다
             bad_condition2=False
