@@ -30,6 +30,9 @@ for i in range(M):
             bad = True
             break
     
+    if bad == False:
+        continue
+        
     sick_list = []
     for k in range(D): #기록을 하나씩 보는데
         if m[k]==m[i]: #상한 치즈를 먹은 사람이라면
