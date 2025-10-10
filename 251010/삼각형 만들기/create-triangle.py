@@ -25,7 +25,7 @@ for i in range(n):
             max_y = max(y[i],y[j],y[k])
             min_y = min(y[i],y[j],y[k])
             area = (max_x-min_x) * (max_y-min_y)
-            #print("x",max_x, "y",max_y)
+            
             #최댓값인지 확인 
             max_val = max(area, max_val)
 
