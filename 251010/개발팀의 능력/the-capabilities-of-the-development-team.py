@@ -23,4 +23,4 @@ for a1 in range(len(arr)):
 
                 min_val = min(diff, min_val)
 
-print(-1 if min_val==1000 else min_val)
+print(-1 if min_val==1000 else min_val) #min_val이 초기화값이라면 모든 팀의 능력치가 서로 다르지 묶어야한다는 조건을 통과하지 못한거임
