@@ -14,36 +14,27 @@ for _ in range(S):
     sick_t.append(time)
 
 # Please write your code here.
-#아픈사람 수 최댓값 = 필요한 약의 갯수 최댓값
-max_val = 0
+
+#상한 치즈 후보인지 확인 : 아픈사람 모두가 해당치즈를 아프기 전에 먹었나?
+def is_bad(cheese_idx):
+    for i in range(S): #아픈사람에 대해
+        sick_idx = sick_p[i]
+        for j in range(D): #치즈먹은기록에서 아픈사람이 해당치즈를 아프기전에 먹었는지 체크한다 
+            if p[j]==sick_idx and m[j]==cheese_idx:
+                if t[j]>=sick_t[i]: #한명이라도 아니라면 상한치즈후보에서 제외된다
+                    return False
+    return True
 
 #치즈별로 먹은 시간을 확인한다
 #만약 아픈 사람이 발생한 시각보다 이전이라면 상한 치즈일 수 있음
 #상한 치즈 후보이므로 해당 치즈를 먹은 다른 시람 또한 아픈 걸로 처리
+
+max_val = 0 #아픈사람 수 최댓값 = 필요한 약의 갯수 최댓값
+
 for cheese_idx in range(1,M+1): #치즈별로 검사하자. 치즈는 1번부터 M번까지이다.
-    bad_condition1,bad_condition2 = False, False
     cnt = 0
 
-    #상한 치즈 후보인지 확인
-
-    # 조건1:해당치즈 먹은 시각 < 환자 발생한 시각
-    for i in range(D):
-        for j in range(S):
-            if m[i]==cheese_idx: #치즈먹은기록에서 해당치즈먹은 시각을 찾고
-                if t[i] < sick_t[j]:
-                    bad_condition1 = True
-                    break
-    
-    #조건2: 아픈사람 모두가 해당치즈를 먹었다
-    for sick_idx in range(S): #아픈사람이 해당치즈를 먹었는지 치즈먹은기록에서 확인한다
-        if not (sick_p[sick_idx] in p): #아픈사람 한 사람이라도 해당 치즈를 먹지 않으면 이 치즈는 상한 치즈가 아니다
-            bad_condition2=False
-            break            
-        bad_condition2=True #아픈사람 모두 해당 치즈를 먹었다는 뜻
-
-    bad = bad_condition1 and bad_condition2 #결론 : 조건1과 조건2를 만족하면 상한치즈이다
-
-    if bad == False: #상한치즈가 아니라면 카운팅하지 않는다
+    if is_bad(cheese_idx) == False: #상한치즈가 아니라면 카운팅하지 않는다
         continue
 
     sick_list = []
