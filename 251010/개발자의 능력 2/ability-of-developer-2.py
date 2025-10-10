@@ -5,12 +5,14 @@ ability = list(map(int, input().split()))
 # 총합이 가장 큰 팀 가장 작은 팀의 차 구하기
 # 그 차가 최솟값인지 확인
 # 차의 최솟값 출력
+# 1234
+#12 13 14 23 24 34
 min_val = 1000000
 for x1 in range(len(ability)):
     for x2 in range(x1+1, len(ability)):
         for x3 in range(len(ability)):
             for x4 in range(x3+1, len(ability)):
-                if x1==x3 or x2==x4:
+                if x1==x3 or x2==x4 or x2==x3 or x1==x4:
                     continue
 
                 sum1 = ability[x1]+ability[x2]
