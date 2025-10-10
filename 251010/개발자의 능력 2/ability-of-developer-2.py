@@ -12,7 +12,7 @@ for x1 in range(len(ability)):
     for x2 in range(x1+1, len(ability)):
         for x3 in range(len(ability)):
             for x4 in range(x3+1, len(ability)):
-                if x1==x3 or x2==x4 or x2==x3 or x1==x4:
+                if not (x1!=x3 and x1!=x4 and x2!=x3 and x2!=x4): #필수 조건: 모두 다른 인덱스여야 한다
                     continue
 
                 sum1 = ability[x1]+ability[x2]
