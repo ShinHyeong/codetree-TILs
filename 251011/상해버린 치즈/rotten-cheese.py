@@ -20,7 +20,7 @@ max_val = 0
 #치즈별로 먹은 시간을 확인한다
 #만약 아픈 사람이 발생한 시각보다 이전이라면 상한 치즈일 수 있음
 #상한 치즈 후보이므로 해당 치즈를 먹은 다른 시람 또한 아픈 걸로 처리
-for cheese_idx in range(M+1): #치즈별로
+for cheese_idx in range(1,M+1): #치즈별로 검사하자. 치즈는 1번부터 M번까지이다.
     bad_condition1,bad_condition2 = False, False
     cnt = 0
 
