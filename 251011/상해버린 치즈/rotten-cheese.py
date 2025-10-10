@@ -20,13 +20,13 @@ max_val = 0
 #치즈별로 먹은 시간을 확인한다
 #만약 아픈 사람이 발생한 시각보다 이전이라면 상한 치즈일 수 있음
 #상한 치즈 후보이므로 해당 치즈를 먹은 다른 시람 또한 아픈 걸로 처리
-for i in range(M): #치즈별로
+for cheese_idx in range(M): #치즈별로
     bad_condition1,bad_condition2 = False, False
     cnt = 0
 
     #상한 치즈 후보인지 확인
     for j in range(S): #아픈사람 발생 기록을 본다
-        if t[i] < sick_t[j]: # 조건1:해당치즈 먹은 시각 < 환자 발생한 시각
+        if t[cheese_idx] < sick_t[j]: # 조건1:해당치즈 먹은 시각 < 환자 발생한 시각
             bad_condition1 = True
             break
     
@@ -43,7 +43,7 @@ for i in range(M): #치즈별로
 
     sick_list = []
     for k in range(D): #기록을 하나씩 보는데
-        if m[k]==m[i]: #상한 치즈를 먹은 사람이라면
+        if m[k]==cheese_idx: #상한 치즈를 먹은 사람이라면
             if p[k] in sick_list: #단, 이미 카운팅된 사람은 세지않음
                 continue
             sick_list.append(p[k]) #카운팅
