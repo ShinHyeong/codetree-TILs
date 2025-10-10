@@ -10,13 +10,16 @@ x2 = [line[1] for line in lines]
 #겹친다면 그 수를 카운팅한다
 #(전체 선분 갯수 - 겹치는 선분 갯수) 출력
 
-cnt=0 #겹치는 선분의 갯수
+dotInLine = [0] * n #라인마다 겹치는 점의 갯수를 기록한다
 for i in range(n): #하나의 선분을 고르고
-    for j in range(n):
-        if i==j: #나머지 선분에 대해서만 확인한다
-            continue
+    for j in range(i+1, n):
         #겹치는가 : 겹치는 특징에 해당된다면 카운팅한다
         if (x1[i]<=x1[j] and x2[j]<=x2[i]) or (x1[j]<=x1[i] and x2[i]<=x2[j]):
-            cnt+=1
+            dotInLine[i]+=1
+            dotInLine[j]+=1
 
-print(n-cnt)
+cntLine=0 #겹치는 라인의 갯수
+for cntDot in dotInLine:
+    if cntDot>=1:
+        cntLine+=1
+print(n-cntLine)
