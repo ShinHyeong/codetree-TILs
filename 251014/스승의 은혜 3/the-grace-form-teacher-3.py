@@ -4,8 +4,9 @@ P = [gift[0] for gift in gifts]
 S = [gift[1] for gift in gifts]
 
 # Please write your code here.
-#최대한 선물 주기 -> 선물가격 낮은 거부터 구매
-gifts.sort(key=lambda x:x[0]) #선물가격을 기준으로 오름차순 정렬
+#최대한 선물 주기 -> 할인쿠폰은 (선물가격1/2+배송비) 내림차순으로 적용, 나머지 선물은 (선물가격+배송비) 낮은 거부터 구매
+maybe_useCoupon = sorted(gifts, key=lambda gift : -(gift[0]//2+gift[1]))
+gifts.sort(key=lambda gift : (gift[0]+gift[1])) #선물가격을 기준으로 오름차순 정렬
 P = [gift[0] for gift in gifts]
 S = [gift[1] for gift in gifts]
 
@@ -18,7 +19,6 @@ for target in range(len(P)): #반값할인쿠폰을 적용할 선물
     useCoupon = P[target]//2 #할인쿠폰 적용
     if buget>=(useCoupon+S[target]): #할인쿠폰 적용해도 구매 가능한지 확인
         buget -= (useCoupon+S[target])
-        #print(target, useCoupon, S[target], "buget:", buget)
         cnt+=1
     
     for i in range(len(P)): #할인쿠폰 적용한 선물을 제외한 것들 구매가능한지 확인
@@ -26,7 +26,6 @@ for target in range(len(P)): #반값할인쿠폰을 적용할 선물
             continue
         if buget>=(P[i]+S[i]):
             buget -= (P[i]+S[i])
-            #print(target, i, "buget:", buget)
             cnt+=1
     
     max_val = max(max_val, cnt)
