@@ -5,7 +5,7 @@ S = [gift[1] for gift in gifts]
 
 # Please write your code here.
 #최대한 선물 주기 -> (선물가격+배송비) 낮은 거부터 구매
-gifts.sort(key=lambda gift : (gift[0]+gift[1])) #선물가격을 기준으로 오름차순 정렬
+gifts.sort(key=lambda gift : (gift[0]+gift[1])) 
 P = [gift[0] for gift in gifts]
 S = [gift[1] for gift in gifts]
 
