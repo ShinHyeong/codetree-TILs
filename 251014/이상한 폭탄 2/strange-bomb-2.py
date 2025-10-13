@@ -10,7 +10,7 @@ max_num = -1
 
 for target in range(len(num)):
     for i in range(target+1, len(num)):
-        if num[target]==num[i] and target<=(K-1):
+        if num[target]==num[i] and i-target<=K:
             max_num = max(num[target], max_num)
 
 print(max_num)
