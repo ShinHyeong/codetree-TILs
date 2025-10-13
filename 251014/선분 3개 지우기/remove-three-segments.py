@@ -35,11 +35,9 @@ for l1_idx in range(n): #서로 다른 선분 3개 고르기
             delete_line(arr_cpy, l3_idx)
 
             overlap = False
-            
             for i in range(len(arr_cpy)):
                 if arr_cpy[i]>1: #한번이라도 겹치면 True
                     overlap = True
             if overlap == False:
-                #print(l1_idx, l2_idx, l3_idx, arr[0:10])
                 cnt+=1
 print(cnt)
