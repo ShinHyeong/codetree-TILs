@@ -11,7 +11,7 @@ def process(t, ta, tb):
         return H
 
 max_val = 0
-for t in range(1002): #적정 온도
+for t in range(1001): #적정 온도
     sum_val = 0
     for ta, tb in ranges:
         sum_val += process(t, ta, tb)
