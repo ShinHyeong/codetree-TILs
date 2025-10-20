@@ -4,82 +4,76 @@ x, y = zip(*points)
 x, y = list(x), list(y)
 
 # Please write your code here.
-# x리스트와 y리스트에 있는 요소 3개 뽑아서
-# 모든 좌표를 지나는지 확인하기
-
-# 모든 포인트들에 대하여
 # 평행 직선을 3개 골라 그린다
+# 모든 포인트들에 대하여
 # 모든 세 개의 직선을 지나지 않는 경우 평행 직선 후보 아웃
-# 평행 직선이 하나라도 있으면  1 출력 아니면 0 출력
+
 MAX_X, MAX_Y = 10,10
-def yyy_ok():
-    for line1_y in range(MAX_Y+1):
-        for line2_y in range(line1_y+1, MAX_Y+1):
-            for line3_y in range(line2_y+1, MAX_Y+1):
+def isCrossing3Row(line1_coord,line2_coord,line3_coord):
+    #y축과 평행한 3개의 직선을 모두 지나는지
+    is_crossing_all_lines = True
 
-                isnot_crossing_all_lines = False
-                for i in range(n): #i번째 포인트에 대하여
-                    if (y[i]!=line1_y)and(y[i]!=line2_y)and(y[i]!=line3_y):
-                        isnot_crossing_all_lines = True
-                        break
+    for x,y in points: #모든 포인트에 대하여
+        if x==line1_coord or x==line2_coord or x==line3_coord:
+            continue #점 하나가 하나의 직선이라도 지나면 통과
 
-                if isnot_crossing_all_lines==False:
-                    return True
-    return False  
+        #모든 직선을 지나지 않으면
+        is_crossing_all_lines = False
+    
+    return is_crossing_all_lines
 
-def yyx_ok():
-    for line1_y in range(MAX_Y+1):
-        for line2_y in range(MAX_Y+1):
-            for line3_x in range(MAX_X+1):
-                
-                if line1_y==line2_y:
-                    continue
+def isCrossing2Row1Column(line1_coord,line2_coord,line3_coord):
+    #y축과 평행한 2개의 직선, x축과 평행한 1개의 직선을 모두 지나는지
+    is_crossing_all_lines = True
 
-                isnot_crossing_all_lines = False
-                for i in range(n): #i번째 포인트에 대하여
-                    if (y[i]!=line1_y)and(y[i]!=line2_y)and(x[i]!=line3_x):
-                        isnot_crossing_all_lines = True
-                        break
+    for x,y in points: #모든 포인트에 대하여
+        if x==line1_coord or x==line2_coord or y==line3_coord:
+            continue #점 하나가 하나의 직선이라도 지나면 통과
 
-                if isnot_crossing_all_lines==False:
-                    return True
-    return False  
+        #모든 직선을 지나지 않으면
+        is_crossing_all_lines = False
+    
+    return is_crossing_all_lines
 
-def yxx_ok():
-    for line1_y in range(MAX_Y+1):
-        for line2_x in range(MAX_X+1):
-            for line3_x in range(MAX_X+1):
-                
-                if line2_x==line3_x:
-                    continue
+def isCrossing1Row2Column(line1_coord,line2_coord,line3_coord):
+    #y축과 평행한 1개의 직선, x축과 평행한 2개의 직선을 모두 지나는지
+    is_crossing_all_lines = True
 
-                isnot_crossing_all_lines = False
-                for i in range(n): #i번째 포인트에 대하여
-                    if (y[i]!=line1_y)and(x[i]!=line2_x)and(x[i]!=line3_x):
-                        isnot_crossing_all_lines = True
-                        break
+    for x,y in points: #모든 포인트에 대하여
+        if x==line1_coord or y==line2_coord or y==line3_coord:
+            continue #점 하나가 하나의 직선이라도 지나면 통과
 
-                if isnot_crossing_all_lines==False:
-                    return True
-    return False  
+        #모든 직선을 지나지 않으면
+        is_crossing_all_lines = False
+    
+    return is_crossing_all_lines
 
-def xxx_ok():
-    for line1_x in range(MAX_X+1):
-        for line2_x in range(line1_x+1, MAX_X+1):
-            for line3_x in range(line2_x+1, MAX_X+1):
+def isCrossing3Column(line1_coord,line2_coord,line3_coord):
+    #x축과 평행한 3개의 직선을 모두 지나는지
+    is_crossing_all_lines = True
 
-                isnot_crossing_all_lines = False
-                
-                for i in range(n): #i번째 포인트에 대하여
-                    if (x[i]!=line1_x)and(x[i]!=line2_x)and(x[i]!=line3_x):
-                        isnot_crossing_all_lines = True
-                        break
+    for x,y in points: #모든 포인트에 대하여
+        if y==line1_coord or y==line2_coord or y==line3_coord:
+            continue #점 하나가 하나의 직선이라도 지나면 통과
 
-                if isnot_crossing_all_lines==False:
-                    return True
-    return False  
+        #모든 직선을 지나지 않으면
+        is_crossing_all_lines = False
+    
+    return is_crossing_all_lines
 
-if yyy_ok() or yyx_ok() or yxx_ok() or xxx_ok():
-    print(1)
-else:
-    print(0)
+
+ans = 0
+for line1_coord in range(MAX_X+1):
+    for line2_coord in range(MAX_X+1):
+        for line3_coord in range(MAX_X+1):
+
+            if isCrossing3Row(line1_coord,line2_coord,line3_coord):
+                ans = 1
+            if isCrossing2Row1Column(line1_coord,line2_coord,line3_coord):
+                ans = 1
+            if isCrossing1Row2Column(line1_coord,line2_coord,line3_coord):
+                ans = 1
+            if isCrossing3Column(line1_coord,line2_coord,line3_coord):
+                ans = 1
+
+print(ans)
