@@ -61,29 +61,23 @@ def isCrossing3Column(line1_coord,line2_coord,line3_coord):
     
     return is_crossing_all_lines
 
-
-ans = 0
-for line1_coord in range(MAX_X+1):
-    for line2_coord in range(MAX_X+1):
-        for line3_coord in range(MAX_X+1):
+def solve():
+    for line1_coord in range(MAX_X+1):
+        for line2_coord in range(MAX_X+1):
+            for line3_coord in range(MAX_X+1):
             
-            if isCrossing3Row(line1_coord,line2_coord,line3_coord):
-                ans = 1
-                continue
+                if isCrossing3Row(line1_coord,line2_coord,line3_coord):
+                    return 1
 
-            if isCrossing2Row1Column(line1_coord,line2_coord,line3_coord):
-                ans = 1
-                continue
+                if isCrossing2Row1Column(line1_coord,line2_coord,line3_coord):
+                    return 1
 
-            if isCrossing1Row2Column(line1_coord,line2_coord,line3_coord):
-                ans = 1
-                continue
+                if isCrossing1Row2Column(line1_coord,line2_coord,line3_coord):
+                    return 1
 
-            if isCrossing3Column(line1_coord,line2_coord,line3_coord):
-                ans = 1
-                continue
+                if isCrossing3Column(line1_coord,line2_coord,line3_coord):
+                    return 1
 
-    if ans==1: 
-        break
-                
-print(ans)
+    return 0
+
+print(solve())
