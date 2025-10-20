@@ -81,3 +81,5 @@ def xxx_ok():
 
 if yyy_ok() or yyx_ok() or yxx_ok() or xxx_ok():
     print(1)
+else:
+    print(0)
