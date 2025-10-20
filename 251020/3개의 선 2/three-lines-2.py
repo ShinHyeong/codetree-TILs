@@ -66,14 +66,24 @@ ans = 0
 for line1_coord in range(MAX_X+1):
     for line2_coord in range(MAX_X+1):
         for line3_coord in range(MAX_X+1):
-
+            
             if isCrossing3Row(line1_coord,line2_coord,line3_coord):
                 ans = 1
+                continue
+
             if isCrossing2Row1Column(line1_coord,line2_coord,line3_coord):
                 ans = 1
+                continue
+
             if isCrossing1Row2Column(line1_coord,line2_coord,line3_coord):
                 ans = 1
+                continue
+
             if isCrossing3Column(line1_coord,line2_coord,line3_coord):
                 ans = 1
+                continue
 
+    if ans==1: 
+        break
+                
 print(ans)
