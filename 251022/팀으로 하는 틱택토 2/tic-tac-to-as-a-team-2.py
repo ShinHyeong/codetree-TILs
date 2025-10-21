@@ -6,7 +6,6 @@ board = [list(map(int, i)) for i in inp]
 def is_win(cnt_p1, cnt_p2):
     return (cnt_p1==2 and cnt_p2==1) or (cnt_p1==1 and cnt_p2==2)
 
-# 가로 / 세로 / 대각선으로 같은수2개 다른수1개 조합이 몇개?
 PLAYER_MIN_NUM, PLAYER_MAX_NUM = 1, 9
 
 ans = 0
