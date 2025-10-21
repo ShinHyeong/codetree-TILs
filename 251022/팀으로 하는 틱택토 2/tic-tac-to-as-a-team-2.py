@@ -28,6 +28,11 @@ for player1 in range(PLAYER_MIN_NUM, PLAYER_MAX_NUM+1):
                     cnt_p2+=1
             if is_win(cnt_p1, cnt_p2):
                 win = True
+                break # 가로 검사 중단
+
+        if win: # 가로에서 이미 이겼으면
+            ans += 1
+            continue # 세로/대각선 검사 스킵, 다음 팀으로 이동
 
         #세로로 빙고가 만들어지는지 검사
         for j in range(3):
@@ -39,6 +44,11 @@ for player1 in range(PLAYER_MIN_NUM, PLAYER_MAX_NUM+1):
                     cnt_p2+=1
             if is_win(cnt_p1, cnt_p2):
                 win = True
+                break # 세로 검사 중단 
+
+        if win: # 세로에서 이겼으면
+            ans += 1
+            continue # 대각선 검사 스킵, 다음 팀으로 이동
 
         #좌측 상단 -> 우측 하단 방향의 대각선으로 빙고가 만들어지는지 검사
         cnt_p1, cnt_p2 = 0,0
@@ -49,6 +59,10 @@ for player1 in range(PLAYER_MIN_NUM, PLAYER_MAX_NUM+1):
                 cnt_p2+=1
         if is_win(cnt_p1, cnt_p2):
             win = True
+        
+        if win: # 좌측 상단 -> 우측 하단 방향의 대각선에서 이겼으면
+            ans += 1
+            continue # 다음 대각선 검사 스킵, 다음 팀으로 이동
 
         #우측 하단 -> 좌측 상단 방향의 대각선으로 빙고가 만들어지는지 검사
         cnt_p1, cnt_p2 = 0,0
