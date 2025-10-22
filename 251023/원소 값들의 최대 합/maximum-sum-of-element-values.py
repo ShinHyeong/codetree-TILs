@@ -4,7 +4,7 @@ arr = [0] + list(map(int, input().split()))
 # Please write your code here.
 
 max_val = 0
-for i in range(n): #시작위치를 고른다
+for i in range(1,n+1): #시작위치를 고른다
     sum_val = 0 #시작위치 i에 대한, m번의 움직임에 대한 누적합
     for _ in range(m): #움직임은 M번 반복한다
         elm = arr[i]
