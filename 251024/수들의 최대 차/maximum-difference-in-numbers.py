@@ -9,8 +9,8 @@ arr = [int(input()) for _ in range(N)]
 max_cnt = 0
 for min_val in range(min(arr), max(arr)+1): #최솟값 고정
     cnt = 0
-    for elm in arr:
-        if (min_val<=elm and elm<=min_val+K):
+    for elm in arr: #조건을 만족하는 숫자 갯수를 센다
+        if (min_val<=elm and elm<=min_val+K): 
             cnt+=1
-    max_cnt = max(max_cnt, cnt)
+    max_cnt = max(max_cnt, cnt) #조건을 만족하는 숫자 갯수가 최댓값인지 확인한다
 print(max_cnt)
