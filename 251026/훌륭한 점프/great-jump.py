@@ -6,7 +6,10 @@ arr = list(map(int, input().split()))
 #적혀있는 수의 최댓값이 max_val 라고 할 때 모두 건널 수 있는지
 def is_possible(max_val):
     #1번 돌부터 건너야 하므로 1번 돌을 건널 수 없다면 False
+    #또 도착지점인 n번 돌도 건너지 못하면 False
     if arr[0] > max_val:
+        return False
+    if arr[n-1] > max_val:
         return False
 
     #건널 수 있는 돌 리스트를 구한다.
