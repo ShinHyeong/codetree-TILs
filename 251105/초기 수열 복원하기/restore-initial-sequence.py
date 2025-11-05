@@ -8,13 +8,14 @@ adjacent = list(map(int, input().split()))
 # A[0]만 구하면 나머지도 순차적으로 구해진다
 
 def is_onlyone_appear(tmp): #한 번씩만 등장하는지 검토한다
-    for idx1 in range(n):
-        for idx2 in range(idx1+1,n):
-            if tmp[idx1]==tmp[idx2]:
-                return False
+    exist = [False] * (n+1)
+    for t in tmp:
+        if exist[t]==True:
+            return False
+        exist[t] = True
     return True
 
-def is_between_1n(tmp):
+def is_between_1n(tmp): #원소는 1과 n사이에 있어야한다.
     for t in tmp:
         if t>n or t<1:
             return False
