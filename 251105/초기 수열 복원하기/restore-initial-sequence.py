@@ -8,8 +8,8 @@ adjacent = list(map(int, input().split()))
 # A[0]만 구하면 나머지도 순차적으로 구해진다
 
 def is_onlyone_appear(tmp): #한 번씩만 등장하는지 검토한다
-    exist = [False] * (n+1)
-    for t in tmp:
+    exist = [False] * (n+1) #idx: 0~n
+    for t in tmp: 
         if exist[t]==True:
             return False
         exist[t] = True
@@ -26,8 +26,9 @@ for a_0 in range(1,n+1): #A[0] 후보를 정한다
     for i in range(n-1): #A[1]~A[n-1]까지 추가한다
         ori.append(adjacent[i]-ori[i])
     
-    if is_onlyone_appear(ori) and is_between_1n(ori):
-        break
+    if is_between_1n(ori):
+        if is_onlyone_appear(ori) :
+            break
         
 for o in ori:
     print(o, end=" ")
