@@ -22,7 +22,7 @@ for pos in range(N):
         n = num[pos] #해당 위치의 폭탄 숫자를 넘겨주고
         bomb_cnt[n] += 1 #그 숫자 갯수를 센다
 
-max_bomb_i = bomb_cnt.index(min(bomb_cnt))
+max_bomb_i = 0
 for i,cnt in enumerate(bomb_cnt):
     if cnt == max(bomb_cnt):
         max_bomb_i = max(max_bomb_i, i)
