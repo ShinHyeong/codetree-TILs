@@ -12,7 +12,7 @@ explode = [False] * N
 
 for i in range(N):
     for j in range(i+1,N):
-        if i-j>K: #거리조건 만족하는지 확인
+        if j-i>K: #거리조건 만족하는지 확인
             break #거리가 k를 초과하는 다음 j도 싹다 넘겨야 함
         
         if num[i]!=num[j]: #거리조건 만족하는데 폭탄번호가 다르면
