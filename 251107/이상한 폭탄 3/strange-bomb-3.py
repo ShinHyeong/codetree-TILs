@@ -3,11 +3,6 @@ num = [int(input()) for _ in range(N)]
 
 # Please write your code here.
 
-#idx의 차(거리) <= k
-    #터진다
-#N크기의 폭탄리스트를 만들고 터진 갯수를 저장한다
-#가장 많이 터진 폭탄의 번호를 출력한다
-
 #가장 많이 터진 폭탄의 "번호"를 물어봄 -> 번호 단위로 완전탐색
 
 unique_num = []
