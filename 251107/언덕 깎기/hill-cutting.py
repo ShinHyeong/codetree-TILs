@@ -25,7 +25,6 @@ for i in range(N): #최솟값 고정
         
         cost += x*x #비용계산
     
-    print(heights[i],cost)
     min_cost = min(cost, min_cost) #최소비용인지 확인
 
 print(min_cost)
