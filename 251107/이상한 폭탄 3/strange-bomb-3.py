@@ -35,7 +35,7 @@ for i in range(N):
 
 # 가장 많이 터진 횟수를 구하고
 #그 횟수에 해당하는 폭탄번호 최댓값 구하기
-max_explode_cnt = 0
+max_explode_cnt = 1
 max_bomb_num = 0
 for n,cnt in enumerate(explode_cnt):
     if cnt>=max_explode_cnt:
