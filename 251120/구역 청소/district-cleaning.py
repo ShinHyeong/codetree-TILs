@@ -13,9 +13,4 @@ c, d = map(int, input().split())
 if b<c or d<a: 
     print((d-c)+(b-a))
 else:
-    if a<=c and c<=b and b<=d:
-        print(d-a)
-    if a<=c and d<=b:
-        print(b-a)
-    if c<=a and a<=d and d<=b:
-        print(b-c)
+    print(max(a,b,c,d) - min(a,b,c,d))
