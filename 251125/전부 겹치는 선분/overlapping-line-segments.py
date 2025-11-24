@@ -13,7 +13,7 @@ for i in range(n):
 
 all_overlap = False
 for a in arr:
-    if a==3:
+    if a==n:
         all_overlap = True
         break
 
