@@ -4,18 +4,11 @@ x1, x2 = zip(*segments)
 x1, x2 = list(x1), list(x2)
 
 # Please write your code here.
-min_val, max_val = min(x1), max(x2)
-arr = [0] * (max_val+1)
 
-for i in range(n):
-    for j in range(x1[i], x2[i]+1):
-        arr[j]+=1
+# min_x2 = 끝점에서의 가장 작은값
+# max_x1 = 시작점에서의 가장 큰값
+min_x2, max_x1 = min(x2), max(x1)
 
-all_overlap = False
-for a in arr:
-    if a==n:
-        all_overlap = True
-        break
+# max_x1 > min_x2 라면 절대 모든 선분이 겹칠 수 없다
 
-print("Yes" if all_overlap else "No")
-    
+print("Yes" if max_x1<=min_x2 else "No")
