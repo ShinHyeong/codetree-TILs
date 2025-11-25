@@ -12,7 +12,6 @@ x2 = [seg[1] for seg in segments]
 # 모든 선분이 다 겹치는 조건인지 확인한다 (max_x1 <= min_x2)
 MIN_X,MAX_X = 1,100
 
-
 all_overlap = False
 for e in range(n): #제외할 선분 하나를 뽑는다
 
@@ -20,8 +19,8 @@ for e in range(n): #제외할 선분 하나를 뽑는다
     for i in range(n): #그 선분을 제외한 max_x1, min_x2을 구한다
         if i==e:
             continue
-        max_x1 = x1[i] if max_x1 <= x1[i] else max_x1
-        min_x2 = x2[i] if min_x2 >= x2[i] else min_x2
+        max_x1 = max(x1[i],max_x1)
+        min_x2 = min(x2[i],min_x2)
 
     if max_x1 <= min_x2:
         all_overlap = True
