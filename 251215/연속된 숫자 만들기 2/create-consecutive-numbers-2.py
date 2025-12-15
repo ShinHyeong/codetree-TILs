@@ -9,6 +9,7 @@ pos = list(map(int, input().split()))
 #  -> 만약 그렇다면 print(1)
 #둘다 연속된 값이 안나오면 print(2)
 
+pos.sort()
 v1, v2, v3 = pos[0], pos[1], pos[2]
 
 if abs(v2-v1)==1 and abs(v3-v2)==1:
