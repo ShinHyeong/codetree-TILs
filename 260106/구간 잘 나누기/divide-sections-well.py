@@ -10,6 +10,7 @@ a = list(map(int, input().split()))
 #최소인지 확인한다
 #이 과정을 모든 경우에 대해 반복한다
 #한계 : 그러나 for문의 횟수가 가변적이다 (for문 횟수 = m번)
+#아예 상한선(최댓값)을 잡아버리고 통과/불통과 로직으로 가자
 
 def is_possible(limit): #limit : 최댓값
     m_cnt = 1 #구간 갯수
