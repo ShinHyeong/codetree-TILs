@@ -24,8 +24,8 @@ def is_possible(limit): #limit : 최댓값
     
     return m_cnt <= m
 
-answer = 100*(n-((m-1)*2))
-for limit in range(max(a)+1, sum(a)+1):
+answer = sum(a)
+for limit in range(max(a), sum(a)+1):
     if is_possible(limit):
         if limit <= answer:
             answer = limit
