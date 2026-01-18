@@ -16,24 +16,21 @@ a = list(map(int, input().split()))
 def get_h(t_list):
     t_list.sort(reverse=True)
     
-    for i in range(0,N-1):
-        target = t_list[i]
+    for h in range(100,-1,-1):
         chance = L
         cntA, cntB = 0, 0
 
         for ele in t_list:
-            if ele >= target:
+            if ele >= h:
                 cntA += 1
-            elif chance > 0 and ele == target-1:
+            elif chance > 0 and ele == h-1:
                 chance -= 1
                 cntB += 1
 
         target_cnt = cntA + cntB
 
-        if target_cnt >= target:
-            return target      
-
-    return target
+        if target_cnt >= h:
+            return h
 
 print(get_h(a))     
 
