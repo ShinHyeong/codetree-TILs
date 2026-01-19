@@ -27,19 +27,21 @@ cost = 0
 min_val, max_val = min(arr), max(arr)
 
 while not is_diff_LTE_K(arr):
-    max_val -= 1
-    for i in range(n):
-        if arr[i] == max_val+1:
-            cost += 1
-            arr[i] -= 1
+    if get_max_val_cnt(arr) < get_min_val_cnt(arr):
+        max_val -= 1
+        for i in range(n):
+            if arr[i] == max_val+1:
+                cost += 1
+                arr[i] -= 1
 
     if is_diff_LTE_K(arr):
         break
 
-    min_val += 1
-    for i in range(n):
-        if arr[i] == min_val-1:
-            cost += 1
-            arr[i] += 1
+    if get_min_val_cnt(arr) <= get_max_val_cnt(arr):
+        min_val += 1
+        for i in range(n):
+            if arr[i] == min_val-1:
+                cost += 1
+                arr[i] += 1
     
 print(cost)
