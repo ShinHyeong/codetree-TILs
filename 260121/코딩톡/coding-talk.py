@@ -29,7 +29,7 @@ allUserList = [chr(i) for i in range(65,65+n)]
 
 target_idx = p-1
 
-while u[target_idx] == u[target_idx-1]: 
+while target_idx >= 0 and u[target_idx] == u[target_idx-1]: 
     target_idx -= 1
 
 readUserSet = set() #확실히 읽은 사람
