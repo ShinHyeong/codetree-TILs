@@ -17,7 +17,7 @@ X = int(input())
 # ex. X=10 3*3 <=X<= 4*4
 # time=5 pick! 1+2+3+2+1 에 유지할 속도를 끼워넣자 -> 몇번끼워야하는지 확인한다
     # 최대속력을 구하고, X-dist-최대속력<=0인지 확인한다. 그러니까 속도유지 1번으로 충족이 되냐는 뜻이다(답은 time+1로 처리) 
-        # 만약 안되면 또 확인한다. 답은 time+1+1
+        # 만약 안되면 또 최대속력을 빼고 확인한다. 답은 time+1+1
         #ex. X=13, dist=9라서 13-9=4인 경우
 # time+끼워넣은 횟수 가 답!
 
@@ -32,15 +32,16 @@ while True:
         break
     n+=1
 
+#n=78
 if dist==X:
     print(time)
 else:
     max_speed = n+1
-
-    if X-dist-max_speed<=0:
-        time+=1
-
-    while X-dist-max_speed >0:
+    remain_dist = X-dist     
+    while True:
+        remain_dist -= max_speed
         time += 1
+        if remain_dist<=0:
+            break
 
     print(time)
