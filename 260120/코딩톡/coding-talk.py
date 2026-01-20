@@ -14,6 +14,16 @@ u = [int(msg[1]) for msg in messages] #읽지않은 사람수
 # A 2명이 안읽었다 확실:A,F / 후보:B,C,D,E
 # F 4명이 안읽었다 확실:F / 후보:A,B,C,D,E
 
+###예시 분석###
+# 총 6명 : 6 6 1
+# D 0명이 안읽었다 
+# C 1명이 안읽었다 확실:C,A,B,F / 후보:D,E
+# B 2명이 안읽었다 확실:B,A,F / 후보:C,D,E
+# B 2명이 안읽었다 
+# A 2명이 안읽었다 확실:A,F / 후보:B,C,D,E
+# F 4명이 안읽었다 확실:F / 후보:A,B,C,D,E
+
+
 ###조건 분석###
 #인원은 최소1에서 최대26명까지 가능한 톡방
 #안읽은 사람 수는 메세지수보다 적다
@@ -39,5 +49,8 @@ for user in allUserList:
         answer.append(user)
 answer.sort()
 
-for ele in answer:
-    print(ele,end=" ")
+if u[target_idx]==0:
+    print()
+else:
+    for ele in answer:
+        print(ele,end=" ")
