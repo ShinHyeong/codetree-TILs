@@ -47,4 +47,19 @@ for case in case_list:
             win_cnt += 1
     max_win_cnt = max(win_cnt, max_win_cnt)
 
+    for i in range(N):
+        if a[i]==case[0]:
+            a[i]=1
+        elif a[i]==case[1]:
+            a[i]=2
+        else:
+            a[i]=3
+        if b[i]==case[0]:
+            b[i]=1
+        elif b[i]==case[1]:
+            b[i]=2
+        else:
+            b[i]=3
+
+
 print(max_win_cnt)
