@@ -17,42 +17,31 @@ seats = input()
 # 2. 그 간격의 가운데 idx를 찾고, x를 넣는다
 # 3. 가장 가까운 간격을 구한다
 
-first_seat_idx = 0
-for i in range(len(seats)):
+seats = list(seats)
+max_dist = 0
+max_i, max_j = -1,-1
+for i in range(N):
     if seats[i]=='1':
-        first_seat_idx = i
-        break
+        for j in range(i+1,N):
+            if seats[j]=='1':
+                # '1'간의 쌍을 구했을 때 최대 간격 업데이트
+                if j-i > max_dist:
+                    max_dist = j-i
+                    max_i, max_j = i,j
+                
+                # '1'간의 쌍을 구했으므로 for j문 종료
+                break
 
-dist_list = []
-dist = 1
-for i in range(first_seat_idx+1,len(seats)):
+seats[(max_i+max_j)//2] = '1'
+
+min_dist = 1000
+for i in range(N):
     if seats[i]=='1':
-        dist_list.append(dist)
-        dist = 0
-    dist += 1
-
-max_dist = max(dist_list)
-dist = 0
-target_idx1, target_idx2 = 0,0
-for i in range(len(seats)):
-    if seats[i]=='1':
-        if dist==max_dist:
-            target_idx2 = i
-            target_idx1 = i-max_dist
-            break
-        dist=0
-    dist += 1
-
-seats_list = list(seats)
-x_idx = (target_idx1 + target_idx2)//2
-seats_list[x_idx] = '1'
-seats = "".join(seats_list)
-
-dist_list = []
-dist = 1
-for i in range(first_seat_idx+1,len(seats)):
-    if seats[i]=='1':
-        dist_list.append(dist)
-        dist = 0
-    dist += 1
-print(min(dist_list))
+        for j in range(i+1,N):
+            if seats[j]=='1':
+                # '1'간의 쌍을 구했을 때 최소 간격 업데이트
+                if j-i < min_dist:
+                    min_dist = j-i
+                # '1'간의 쌍을 구했으므로 for j문 종료
+                break
+print(min_dist)
