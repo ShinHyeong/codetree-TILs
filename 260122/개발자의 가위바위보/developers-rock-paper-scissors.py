@@ -13,53 +13,29 @@ a, b = list(a), list(b)
 # 3 2 -> 보 주먹 (승)
 # 총 2판 승리
 
-# 3*2*1=6
+## 문제 분석
 # (1,2,3)
-# (가위,주먹,보) 
-# (가위,보,주먹)
-# (주먹,가위,보)
-# ...
+# (가위,주먹,보) -> (1,3) (2,1) (3,2)
+# (가위,보,주먹) -> (1,2) (2,3) (3,1)
+# (주먹,가위,보) -> (1,2) (2,3) (3,1)
+# (주먹,보,가위) -> (1,3) (2,1) (3,2)
+# (보,가위,주먹) -> (1,3) (2,1) (3,2)
+# (보,주먹,가위) -> (1,2) (2,3) (3,1)
+# 이렇게 첫번째 개발자가 이기는 경우는 (1,3) (2,1) (3,2) 또는 (1,2) (2,3) (3,1) 만 나옴
 
-#로직
-#6가지 경우에 대해서 승리하는 횟수를 구한다
-case_list = [("s","r","p"),("s","p","r"),
-                ("r","s","p"),("r","p","s"),
-                ("p","s","r"),("p","r","s")]
-max_win_cnt = 0
-for case in case_list:
-    for i in range(N):
-        if a[i]==1:
-            a[i]=case[0]
-        elif a[i]==2:
-            a[i]=case[1]
-        else:
-            a[i]=case[2]
-        if b[i]==1:
-            b[i]=case[0]
-        elif b[i]==2:
-            b[i]=case[1]
-        else:
-            b[i]=case[2]
+## 로직
+# (1,3) (2,1) (3,2) 경우 세기 (=case1_cnt)
+# (1,2) (2,3) (3,1) 경우 세기 (=case2_cnt)
+# 둘중 최댓값 고르기
 
-    win_cnt = 0
-    for i in range(N):
-        if (a[i]=="s" and b[i]=="p") or (a[i]=="r" and b[i]=="s") or (a[i]=="p" and b[i]=="r"):
-            win_cnt += 1
-    max_win_cnt = max(win_cnt, max_win_cnt)
+case1_cnt = 0
+for i in range(N):
+    if (a[i]==1 and b[i]==3) or (a[i]==2 and b[i]==1) or (a[i]==3 and b[i]==2):
+        case1_cnt+=1
 
-    for i in range(N):
-        if a[i]==case[0]:
-            a[i]=1
-        elif a[i]==case[1]:
-            a[i]=2
-        else:
-            a[i]=3
-        if b[i]==case[0]:
-            b[i]=1
-        elif b[i]==case[1]:
-            b[i]=2
-        else:
-            b[i]=3
+case2_cnt = 0
+for i in range(N):
+    if (a[i]==1 and b[i]==2) or (a[i]==2 and b[i]==3) or (a[i]==3 and b[i]==1):
+        case2_cnt+=1
 
-
-print(max_win_cnt)
+print(max(case1_cnt,case2_cnt))
