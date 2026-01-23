@@ -36,12 +36,13 @@ a = list(map(int, input().split()))
 cnt=0
 if a[1]-a[0]>1 and a[1]-a[0]>=a[2]-a[1]: #오른쪽 끝 수를 선택한다
     a[2] = a[1]-1
+    cnt+=1
     a.sort()
     cnt+= (a[2]-2)-a[0]
 elif a[2]-a[1]>1 and a[2]-a[1]>a[1]-a[0]: #왼쪽 끝 수를 선택한다
     a[0] = a[1]+1
+    cnt+=1
     a.sort()
     cnt+= a[2]-(a[0]+2)
-cnt+=1
 
 print(cnt)
