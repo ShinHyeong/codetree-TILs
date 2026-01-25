@@ -26,7 +26,7 @@ for i in range(N):
     if seats[i]=='1':
         for j in range(i+1,N):
             if seats[j]=='1':
-                if j-i > max_dist:
+                if j-i > max_dist1:
                     max_dist = j-i
                     max_i,max_j = i, j
 
@@ -39,7 +39,7 @@ if seats[0]=='0':
     dist = 0
     
     for i in range(N):
-        if seat[i]=='1':
+        if seats[i]=='1':
             break
         dist += 1
 
@@ -51,7 +51,7 @@ if seats[N-1]=='0':
     dist = 0
     
     for i in range(N-1,-1,-1):
-        if seat[i]=='1':
+        if seats[i]=='1':
             break
         dist += 1
 
@@ -67,7 +67,7 @@ else:
 ans = 1000
 for i in range(N):
     if seats[i]=='1':
-        for j in range(i+1,N)
+        for j in range(i+1,N):
             if seats[j]=='1':
                 ans = min(j-i, ans)
                 break
