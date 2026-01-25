@@ -42,7 +42,7 @@ if seats[0]=='0':
     a1 = get_min_dist(seats)
     seats[0]='0'
 
-elif seats[N-1]=='0':
+if seats[N-1]=='0':
     seats[N-1]='1'
     a1 = max(get_min_dist(seats), a1)
     seats[N-1]='0'
@@ -62,4 +62,5 @@ seats[(max_i+max_j)//2]='1'
 
 a2 = get_min_dist(seats) if max_i != -1 or max_j != -1 else -1
 
+#print(a1,a2)
 print(max(a1,a2))
