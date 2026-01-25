@@ -27,12 +27,12 @@ for i in range(N):
         for j in range(i+1,N):
             if seats[j]=='1':
                 if j-i > max_dist1:
-                    max_dist = j-i
+                    max_dist1 = j-i
                     max_i,max_j = i, j
 
                 break
 
-max_dist2 = 0
+max_dist2 = -1
 max_idx = -1
 
 if seats[0]=='0':
