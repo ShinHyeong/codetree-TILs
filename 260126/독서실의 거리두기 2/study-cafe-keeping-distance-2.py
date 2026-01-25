@@ -59,7 +59,7 @@ if seats[N-1]=='0':
         max_dist2 = dist
         max_idx = N-1
 
-if max_dist2 >= max_dist//2:
+if max_dist2 >= max_dist1//2:
     seats[max_idx] = '1'
 else:
     seats[(max_i+max_j)//2] = '1'
