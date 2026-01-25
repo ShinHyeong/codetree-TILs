@@ -8,6 +8,8 @@ seats = input()
 
 
 ### 로직 설정
+# 원래 자리에서 가장 가까운 거리를 구한다
+
 # c1 : 0으로 시작, 1로 끝 -> 맨 앞에 1을 붙인다
     #0010000001000001 
     #0000001000001
@@ -19,39 +21,33 @@ seats = input()
 # 가장 먼 두 사람 간의 거리를 구한다
 # 이렇게 처리했을 때 가까운 거리를 구한다
 
-# 둘중 큰 값을 리턴한다
+# 셋 중 큰 값을 리턴한다
 
 seats = list(seats)
 
 def get_min_dist(arr):
     min_dist = 1000
+
     for i in range(N):
         if seats[i]=='1':
             for j in range(i+1,N):
                 if seats[j]=='1':
                     min_dist = min(j-i,min_dist)
                     break
+
     return min_dist
 
 a1 = -1
-if seats[0]=='0' and seats[1]=='0' and seats[N-1]=='0' and seats[N-2]=='0':
-    seats[0]='1'
-    seats[N-1]='1'
-    a1 = get_min_dist(seats)
-    seats[0]='0'
-    seats[N-1]='0'
 
-elif seats[0]=='0' and seats[1]=='0':
+if seats[0]=='0' and seats[1]=='0':
     seats[0]='1'
     a1 = get_min_dist(seats)
     seats[0]='0'
 
 elif seats[N-1]=='0'and seats[N-2]=='0':
     seats[N-1]='1'
-    a1 = get_min_dist(seats)
+    a1 = max(get_min_dist(seats), a1)
     seats[N-1]='0'
-
-#print("".join(seats))
 
 max_dist = 0
 max_i,max_j = -1,-1
@@ -65,6 +61,6 @@ for i in range(N):
 
                 break
 seats[(max_i+max_j)//2]='1'
-
 a2 = get_min_dist(seats)
+
 print(max(a1,a2))
