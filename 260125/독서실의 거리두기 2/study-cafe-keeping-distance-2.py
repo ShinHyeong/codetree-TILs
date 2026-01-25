@@ -8,8 +8,6 @@ seats = input()
 
 
 ### 로직 설정
-# 원래 자리에서 가장 가까운 거리를 구한다
-
 # c1 : 0으로 시작, 1로 끝 -> 맨 앞에 1을 붙인다
     #0010000001000001 
     #0000001000001
@@ -39,12 +37,12 @@ def get_min_dist(arr):
 
 a1 = -1
 
-if seats[0]=='0' and seats[1]=='0':
+if seats[0]=='0':
     seats[0]='1'
     a1 = get_min_dist(seats)
     seats[0]='0'
 
-elif seats[N-1]=='0'and seats[N-2]=='0':
+elif seats[N-1]=='0':
     seats[N-1]='1'
     a1 = max(get_min_dist(seats), a1)
     seats[N-1]='0'
@@ -61,6 +59,7 @@ for i in range(N):
 
                 break
 seats[(max_i+max_j)//2]='1'
-a2 = get_min_dist(seats)
+
+a2 = get_min_dist(seats) if max_i != -1 or max_j != -1 else -1
 
 print(max(a1,a2))
