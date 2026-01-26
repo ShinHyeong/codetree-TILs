@@ -14,15 +14,13 @@ arr = list(input().split())
 # 제약 : 인접한 두 사람만 순서변경 가능
 # 변경횟수 최소 구하기
 
-##로직설정
-# B가 A다음에 올 때까지 순서 바꾸기
-# C가 B다음에 올 때까지 순서 바꾸기
-
+# 버블정렬
 cnt=0
-for i in range(n-1):
-    if arr[i]>arr[i+1]:
-        tmp = arr[i]
-        arr[i] = arr[i+1]
-        arr[i+1] = tmp
-        cnt+=1
+sorted_list = sorted(arr)
+while arr!=sorted_list:
+    for i in range(n-1):
+        if arr[i]>arr[i+1]:
+            arr[i],arr[i+1] = arr[i+1],arr[i]
+            cnt+=1
+            #print(arr)
 print(cnt)
