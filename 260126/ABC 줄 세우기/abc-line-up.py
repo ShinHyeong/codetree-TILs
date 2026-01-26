@@ -16,10 +16,17 @@ arr = list(input().split())
 
 #로직 정렬된 결과 나올때까지 처음부터 끝까지 인접 순서바꾸기 반복
 cnt=0
+
 for i in range(n):
-    for j in range(n - 1 - i):
-        if arr[j] > arr[j + 1]:
-            arr[j], arr[j + 1] = arr[j + 1], arr[j]
-            cnt += 1
+    x = chr(65+i)
+
+    idx = 0
+    for j in range(n):
+        if arr[j]==x:
+            idx = j
+
+    for j in range(idx-1, i-1, -1):
+        arr[j],arr[j+1] = arr[j+1], arr[j]
+        cnt+=1
 print(cnt)
 
