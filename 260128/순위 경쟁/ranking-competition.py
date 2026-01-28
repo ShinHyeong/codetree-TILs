@@ -22,7 +22,7 @@ for _ in range(n):
 # 답 = 5
 
 ## 로직 설정
-# 를 저장하고 바뀌면 cnt+1
+# 명예전당 확인하고 바뀌면 cnt+1
 cnt = 0
 winner = "ABC"
 curr = [0,0,0]
