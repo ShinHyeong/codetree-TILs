@@ -23,9 +23,6 @@ group_cnt = 1+m+m
 start_idx = 0
 
 while True:
-    if group_cnt > n:
-        answer += 1
-        break
 
     is_all_zero = True
     for ele in arr:
@@ -33,6 +30,10 @@ while True:
             is_all_zero = False
             break
     if is_all_zero:
+        break
+
+    if group_cnt > n:
+        answer += 1
         break
 
     for i in range(start_idx, start_idx+group_cnt): 
