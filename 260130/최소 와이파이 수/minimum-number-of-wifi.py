@@ -18,21 +18,22 @@ arr = list(map(int, input().split()))
 
 answer = 0
 
-group_cnt = 1+m+m #5
+group_cnt = 1+m+m
 start_idx = 0
-#print("start_idx", start_idx)
+
 while True:
-    
-    for i in range(start_idx, start_idx+group_cnt): #0부터 4까지
+    if group_cnt > n:
+        answer += 1
+        break
+
+    for i in range(start_idx, start_idx+group_cnt):
         if arr[i]==1:
             answer += 1
             break
 
-    start_idx += group_cnt #5부터 시작
-    
-    #print("start_idx", start_idx)
+    start_idx += group_cnt 
 
-    if n > start_idx >= (n-group_cnt): #11-5=6
+    if n > start_idx >= (n-group_cnt): 
         answer += 1
         break
 
