@@ -22,8 +22,11 @@ answer = 0
 group_cnt = 1+m+m
 start_idx = 0
 while True:
-    if n > start_idx >= (n-group_cnt): 
-        answer += 1
+    if start_idx >= (n-group_cnt):
+        for i in range(start_idx,n):
+            if arr[i]==1:
+                answer += 1
+                break
         break
 
     if group_cnt > n:
