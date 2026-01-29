@@ -14,30 +14,27 @@ arr = list(map(int, input().split()))
 # 1 1 1 0 0 0 1 1 1
 # m=1이라면 자신을 포함해 양옆 1+1명까지 커버가능 (=3명)
 # 즉 1+m+m명까지 커버 가능하다는 것이다
-# 일단 앞에서부터 (1+m+m)명을 봤을 때, 1이 하나라도 있으면 카운팅해야함
+# 1을 마주하면 cnt+=1
+    # 그 다음부터 검사할 인덱스는 1+m+m부터 시작
+# 0을 마주하면 패스하고 다음칸으로 옮기면서 검사
+# 종료조건 i>=n-group_cnt
 
-
-answer = 0
+cnt=0
 
 group_cnt = 1+m+m
-start_idx = 0
+i = 0
 while True:
-    if start_idx >= (n-group_cnt):
-        for i in range(start_idx,n):
-            if arr[i]==1:
-                answer += 1
+    if i >= (n-group_cnt): #종료조건
+        for j in range(i,n):
+            if arr[j]==1:
+                cnt+=1
                 break
         break
 
-    if group_cnt > n:
-        answer += 1
-        break
+    if arr[i]==0:
+        i+=1
+    else: #arr[i]==1
+        cnt+=1
+        i+=(1+m+m)
 
-    for i in range(start_idx, start_idx+group_cnt): 
-        if arr[i]==1:
-            answer += 1
-            break
-
-    start_idx += group_cnt
-
-print(answer)
+print(cnt)
