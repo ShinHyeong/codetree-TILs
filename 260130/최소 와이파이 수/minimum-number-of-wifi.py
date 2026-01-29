@@ -14,8 +14,16 @@ arr = list(map(int, input().split()))
 # 즉 1+m+m명까지 커버 가능하다는 것이다
 # 따라서 n//(1+m+m) 하면 될듯
 # 만약 나누어떨어지지 않으면 (n//(1+m+m)) + 1
+people_cnt = 0
+for ele in arr:
+    if ele == 1:
+        people_cnt +=1
 
-answer= n//(1+m+m)
-if n%(1+m+m)!=0:
-    answer = (n//(1+m+m)) + 1
+#answer= n//(1+m+m)
+#if n%(1+m+m)!=0:
+#    answer = (n//(1+m+m)) + 1
+
+answer= people_cnt//(1+m+m)
+if people_cnt%(1+m+m)!=0:
+    answer = (people_cnt//(1+m+m)) + 1
 print(answer)
