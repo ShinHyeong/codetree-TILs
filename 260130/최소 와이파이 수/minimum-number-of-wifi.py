@@ -21,15 +21,9 @@ answer = 0
 
 group_cnt = 1+m+m
 start_idx = 0
-
 while True:
-
-    is_all_zero = True
-    for ele in arr:
-        if ele != 0:
-            is_all_zero = False
-            break
-    if is_all_zero:
+    if n > start_idx >= (n-group_cnt): 
+        answer += 1
         break
 
     if group_cnt > n:
@@ -41,10 +35,6 @@ while True:
             answer += 1
             break
 
-    start_idx += group_cnt 
-
-    if n > start_idx >= (n-group_cnt): 
-        answer += 1
-        break
+    start_idx += group_cnt
 
 print(answer)
