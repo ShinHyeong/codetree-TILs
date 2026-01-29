@@ -16,6 +16,7 @@ arr = list(map(int, input().split()))
 # 즉 1+m+m명까지 커버 가능하다는 것이다
 # 일단 앞에서부터 (1+m+m)명을 봤을 때, 1이 하나라도 있으면 카운팅해야함
 
+
 answer = 0
 
 group_cnt = 1+m+m
@@ -26,7 +27,15 @@ while True:
         answer += 1
         break
 
-    for i in range(start_idx, start_idx+group_cnt):
+    is_all_zero = True
+    for ele in arr:
+        if ele != 0:
+            is_all_zero = False
+            break
+    if is_all_zero:
+        break
+
+    for i in range(start_idx, start_idx+group_cnt): 
         if arr[i]==1:
             answer += 1
             break
