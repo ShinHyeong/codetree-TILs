@@ -44,12 +44,18 @@ numbers = list(map(int, input().split()))
 # 홀수가 홀수개라면 이를 묶는 것도 충족못하는지 확인한다
 # -> (2,1) 충족 o
 
-
 # 11 2 17 13 1 15 3
 # 짝,홀 갯수 : (1,6)
 # 홀2를 하나씩 만든다 
 # -> (2,4) 조건 충족x
 # -> (3,2) 조건 충족O
+
+# 84 87 78 16 94 36 87 93 50 22 (# 짝홀짝짝짝짝홀홀짝짝)
+# 짝,홀 갯수 : (7,3)
+# 짝2를 하나씩 만든다
+# -> (6,3) 조건 충족x
+# -> (5,3) 조건 충족x
+# -> (4,3) 조건 충족o
 
 even_cnt, odd_cnt = 0,0 #짝,홀 갯수
 for num in numbers:
@@ -57,30 +63,48 @@ for num in numbers:
         even_cnt+=1
     else:
         odd_cnt+=1
-#print(even_cnt, odd_cnt)
 
 def is_answer():
     return even_cnt==odd_cnt+1 or even_cnt==odd_cnt
 
-answer = 0
-
-while True:
-    if odd_cnt == 0: #종료조건
-        break
-
-    if odd_cnt >= 2:
-        even_cnt += 1
-        odd_cnt -= 2
-        if is_answer():
-            answer = even_cnt+odd_cnt
-            break
-        if odd_cnt%2==1:
-            odd_cnt-=2
-            if is_answer():
-                answer = even_cnt+odd_cnt
+if is_answer():
+    print(even_cnt+odd_cnt)
+else:
+    if even_cnt > odd_cnt:# 짝수갯수 > 홀수갯수 -> 짝수를 묶어서 줄인다
+        while True:
+            if even_cnt==0: #종료조건
                 break
 
+            even_cnt -= 1 #짝수를 묶는다
+            #print(even_cnt,odd_cnt)
+            if is_answer(): #조건 충족확인
+                print(even_cnt+odd_cnt)
+                break
+            else:
+                if odd_cnt%2==1: 
+                    odd_cnt-=2 #조건 충족안되면 홀수를 묶는다
+                    if is_answer(): #조건 충족확인
+                        print(even_cnt+odd_cnt)
+                        break
+                    else:
+                        odd_cnt+=2 #안되면 원상복귀
 
-print(answer)
+    else: # 홀수갯수 > 짝수갯수 -> 홀수를 묶어서 짝수로 만든다
+        while True:
+            if odd_cnt == 0: #종료조건
+                break
+
+            #홀수를 묶어서 짝수로 만든다
+            even_cnt += 1 
+            odd_cnt -= 2
+            if is_answer(): #조건 충족 확인
+                print(even_cnt+odd_cnt)
+                break
+            else:
+                if odd_cnt%2==1: #조건 충족이 안되면 홀수를 묶어본다
+                    odd_cnt-=2
+                    if is_answer():
+                        print(even_cnt+odd_cnt)
+                        break
 
 
