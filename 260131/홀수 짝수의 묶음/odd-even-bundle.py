@@ -25,8 +25,9 @@ while True:
         elif odd_cnt >= 2: #2) 짝수가 없다면 홀수2개로 짝수묶음을 구성한다
             odd_cnt -= 2
             group_cnt+=1 
-        else: #3) 재료가 홀수 1개뿐이라면, 짝홀...짝홀홀 이런상태 -> 짝홀...(짝홀홀) 이렇게 만들어야한다
-            group_cnt -= 1
+        else:
+            if even_cnt>0 or odd>0: #짝수를 다 썼거나 재료가 홀수 1개뿐이라서 짝수묶음에 편입시켜야한다면
+                group_cnt -= 1
             break
     else: #홀수묶음을 만들때
         if odd_cnt > 0: # 홀수가 있다면 1개만 쓴다
