@@ -8,6 +8,6 @@ arr = list(map(int, input().split()))
 # A<=B<=A+B
 # A+B <= B+C <= A+B+C
 sorted_arr = sorted(arr)
-sum_abc, a, b = arr[-1], arr[0], arr[1]
+sum_abc, a, b = sorted_arr[-1], sorted_arr[0], sorted_arr[1]
 c = sum_abc - a - b
 print(a,b,c)
