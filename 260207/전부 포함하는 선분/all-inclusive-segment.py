@@ -13,22 +13,24 @@ for (x1,x2) in segments:
 
 # 가장 작은 시작점 가진 선분을 제거했을 때, 나머지를 모두 포함하는 선분의 길이
 min_x1 = min(x1_list)
+min_x1_idx = x1_list.index(min_x1)
 min_start, max_end = 100,1
-for (x1,x2) in segments:
-    if x1 == min_x1:
+for i in range(n):
+    if i == min_x1_idx:
         continue
-    min_start = min(x1, min_start) 
-    max_end = max(x2, max_end)
+    min_start = min(segments[i][0], min_start) 
+    max_end = max(segments[i][1], max_end)
 l1 = max_end - min_start
 
 # 가장 큰 끝점 가진 선분을 제거했을 때, 나머지를 모두 포함하는 선분의 길이
 max_x2 = max(x2_list)
+max_x2_idx = x2_list.index(max_x2)
 min_start, max_end = 100,1
-for (x1,x2) in segments:
-    if x2 == max_x2:
+for i in range(n):
+    if i == max_x2_idx:
         continue
-    min_start = min(x1, min_start) 
-    max_end = max(x2, max_end)
+    min_start = min(segments[i][0], min_start) 
+    max_end = max(segments[i][1], max_end)
 l2 = max_end - min_start
 
 # 둘 중 최솟값이 답
