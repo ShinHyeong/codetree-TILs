@@ -15,7 +15,7 @@ sequence = list(map(int, input().split()))
 
 
 # 이미 잘 정리된 인덱스 시작점 찾기
-good_start_idx = -1
+good_start_idx = 0
 for i in range(n-1,-1,-1):
     if sequence[i]<sequence[i-1]:
         good_start_idx = i
