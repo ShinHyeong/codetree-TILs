@@ -11,7 +11,8 @@ for _ in range(m):
     if cmd[0] == "R":
         stack_l.append(stack_r.pop())
     if cmd[0] == "D":
-        stack_r.pop()
+        if len(stack_r)>0:
+            stack_r.pop()
     if cmd[0] == "P":
         stack_l.append(cmd[1])
 
