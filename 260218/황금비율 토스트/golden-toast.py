@@ -7,9 +7,11 @@ stack_r = []
 for _ in range(m):
     cmd = input().split()
     if cmd[0] == "L":
-        stack_r.append(stack_l.pop())
+        if len(stack_l)>0:
+            stack_r.append(stack_l.pop())
     if cmd[0] == "R":
-        stack_l.append(stack_r.pop())
+        if len(stack_r)>0:
+            stack_l.append(stack_r.pop())
     if cmd[0] == "D":
         if len(stack_r)>0:
             stack_r.pop()
